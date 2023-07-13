@@ -1,0 +1,41 @@
+body{
+font-family: sans-serif;
+margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    display: flex; /* Esto sirve para alinear todo Horizontalmente*/
+    background-color: cornsilk;
+    height: 70px;
+    justify-content: space-between; /* Sirve para ordenar el contenido. Ej:space-betwwen es para separar uno a la izquierda y otro a la derecha */
+    align-items: center; /* Alínea el contenido (creo que verticalmente )*/
+    padding: 10px; /* Separa el contenido para que no este tan pegado (Horizontalmente?) */
+}
+
+.Nombre-empresa:hover{
+    color: whitesmoke;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav a{
+    font-weight: 600; /* Letra negrita */
+    padding: 10px;
+}
+
+nav a:hover{
+    color: hsl(0, 0%, 25%);
+}

@@ -7,26 +7,33 @@ background-color: beige;
 
 header{
     display: flex; /* Esto sirve para alinear todo Horizontalmente*/
-    background-color: grey;
+    background-color: black;
     width: 100%;
-    height: 100vh;
+    height: 10vh;
     background-position: center;
     background-size: cover;
     justify-content: space-between; /* Sirve para ordenar el contenido. Ej:space-betwwen es para separar uno a la izquierda y otro a la derecha */
-    align-items:baseline; /*Alínea el contenido (creo que verticalmente )*/
+    align-items:center; /*Alínea el contenido (creo que verticalmente )*/
     padding: 10px; /* Separa el contenido para que no este tan pegado (Horizontalmente?) */
 }
 
-.Nombre-empresa:hover{
-    color: black;
+.logo{
+    display: flex;
+    align-items: center;
+    color: white;
 }
 
+a{
+    text-decoration: none;
+}
 
+.Nombre-empresa:hover{
+    color: grey;
+}
 
 .logo img{
     height: 50px;
     margin-right: 10px;
-    border-color: whitesmoke;
 }
 
 .nav-link{
@@ -57,7 +64,14 @@ nav a:hover::after{
     width: 100%;
 }
 
+.container{
+    background-image: url(Imagenes/istockphoto-1063676198-612x612.jpg);
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
 
+}
 
 
 

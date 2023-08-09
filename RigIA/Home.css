@@ -46,3 +46,54 @@ div a{
     margin: 5px;
 }
 
+nav i{
+    padding-right: 10px;
+}
+
+.hero {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding-top: 25px;
+}
+
+p{
+    font-size: 85%;
+}
+
+h4{
+    font-weight: 800;
+    margin: 4px;
+}
+
+div.container{
+    padding-bottom: 5px;
+}
+
+.container{
+    text-align: center;
+}
+
+.edit-perfil{
+    background-color: #D8D4D4;
+    border-radius: 3px;
+}
+
+.Outfits{
+    color: #3F3F3F;
+    text-decoration-line: underline;
+}
+
+
+
+.pie{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    margin: 20px;
+}
+
+.pie img{
+    padding-bottom: 20px;  
+}

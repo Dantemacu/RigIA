@@ -48,6 +48,7 @@ div a{
 
 nav i{
     padding-right: 10px;
+    display: block;
 }
 
 .hero {
@@ -96,4 +97,16 @@ div.container{
 
 .pie img{
     padding-bottom: 20px;  
+}
+
+.barra-options{
+    position: fixed;
+    z-index: 10;
+    width: 66%;
+    right: 0;
+    top: 0;
+}
+
+.fa-solid fa-xmark{
+    display: none;
 }

@@ -47,7 +47,6 @@ div a{
 }
 
 nav i{
-    padding-right: 10px;
     display: block;
 }
 
@@ -85,13 +84,10 @@ div.container{
     text-decoration-line: underline;
 }
 
-
-
 .pie{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    
     margin: 20px;
 }
 
@@ -99,14 +95,24 @@ div.container{
     padding-bottom: 20px;  
 }
 
-.barra-options{
+.conf{
+    list-style: none;
+
+}
+
+/* Animacion */
+
+nav {
     position: fixed;
     z-index: 10;
     width: 66%;
     right: 0;
     top: 0;
+    background: #FDFAFA;
+    height: 100vh;
+    padding: 1em;
 }
 
-.fa-solid fa-xmark{
-    display: none;
+li a{
+    text-align: right;
 }

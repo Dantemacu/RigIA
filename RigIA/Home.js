@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", function() {
     openButton.addEventListener("click", function() {
         navBar.classList.add("open");
     });
-
+    
     closeButton.addEventListener("click", function() {
         navBar.classList.remove("open");
     });
-});
+
+})

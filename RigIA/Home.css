@@ -112,38 +112,38 @@ nav {
     height: 100vh;
     padding: 1em;
     transition: width 0.3s ease-in-out;
-}
+    }
 
-li a{
+li {
     text-align: right;
+    padding: .3em;
 }
 
 
 .barra-options {
     position: fixed;
     z-index: 10;
-    width: 0;
-    right: 0;
+    width: 200px;
+    right: -250px;
     top: 0;
     background: #FDFAFA;
     height: 100vh;
     overflow-x: hidden;
     padding: 1em;
-    transition: width 0.3s ease-in-out;
+    transition: right 0.3s ease-in-out;
+    margin-left: 15px;    
 }
 
+
 .barra-options.open {
-    width: 66%;
+    right: 0px;
 }
 
 #barra-close {
     cursor: pointer;
 }
 
-.barra-options {
-    transition: width 0.3s ease-in-out;
-}
 
 .barra{
-    padding-right: 40px;
+    padding-right: 15px;
 }

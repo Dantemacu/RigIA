@@ -22,7 +22,7 @@
     left: 50%; /*  Establece la distancia entre el borde izquierdo del elemento y el borde izquierdo del contenedor */
     transform: translate(-50%,-50%); /* Esta propiedad de transformación se combina con la posición anterior para centrar completamente el elemento en su contenedor*/
     background: #fff; /* */ 
-    padding: 50px 60px 70px; /* */
+    padding: 10px 20px 30px; /* */
     text-align: center;  /* alinea el texto y otros contenidos dentro del elemento al centro*/
 
 }
@@ -83,6 +83,7 @@ form p a{
     width: 100%;
     display: flex;
     justify-content: space-around;
+    
 }
 .btn-field button{
     flex-basis: 48%;
@@ -97,10 +98,14 @@ form p a{
 }
 
 .input-group{
-    height: 280px;
+    height: 220px;
 }
 
 .btn-field button.disable{
     background-color: #eaeaea;
     color: #555;
+}
+
+.input-submit{
+    padding: 20px 0;
 }

@@ -71,3 +71,4 @@ const alumnos = [
     nota: 8,
 },
 ]
+

@@ -59,6 +59,10 @@ main{
     margin-top: 15px;
 }
 
+main h2 {
+    padding: 8px 0;
+}
+
 .close-session{
     padding-top: 10px;
     color: #FF0505;

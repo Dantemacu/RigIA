@@ -30,41 +30,34 @@ main{
     text-align: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 15px;
+    margin-top: 35px;
+    margin-right: 25px;
 }
 
-.input-group {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
+.contrasenias input{
+    margin: 20px 0;
+    border-radius: 7px;
+    border: 2px solid #A8A8A8;
+    background: #D9D9D9;
+    height: 40px;
+    width: 220px;
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: .9em;
 }
 
-.input-field {
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.input-field input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.input-submit button {
-    width: 100%;
-    padding: 12px;
-    background-color: #3DA7C9;
+.cambio input{
+    border-radius: 45px;
+    background: #025D90;
+    width: 184px;
+    height: 33px;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: white;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 14px;
 }
 
-.input-submit button:hover {
-    background-color: #2C839E;
-}
+
+
+

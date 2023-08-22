@@ -58,7 +58,7 @@ footer{
 }
 
 button{
-
+    border: white;
     border-radius: 4px;
     color: white;
     background: #025D90;

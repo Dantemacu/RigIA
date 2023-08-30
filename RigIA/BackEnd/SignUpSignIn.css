@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins' , sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 113, 241, 0.8)), url(FRONT-END/Images/ArmarioSignIn.png);    
+    position: relative;
+}
+
+button#Submit{
+    border: white;
+    color: white;
+    border-radius: 4px;
+    width: 96px;
+    height: 24px;
+    background: #3DA7C9;
+}
+
+
+.form-box{
+    width: 90%; /* establece el ancho del elemento */
+    max-width: 450px; /* limita el ancho máximo del elemento */
+    position: absolute; /* Establece la posicion del elemento con respecto a su padre mas cercano que tenga*/
+    top: 50%; /* Establece la distancia entre el borde superior del elemento y la parte superior del contenedor  */
+    left: 50%; /*  Establece la distancia entre el borde izquierdo del elemento y el borde izquierdo del contenedor */
+    transform: translate(-50%,-50%); /* Esta propiedad de transformación se combina con la posición anterior para centrar completamente el elemento en su contenedor*/
+    background: rgba(255, 255, 255, 0.75); /* */ 
+    padding: 10px 20px 30px; /* */
+    text-align: center;  /* alinea el texto y otros contenidos dentro del elemento al centro*/
+    border-radius: 6px;
+}
+
+.form-box h1{
+    font-size: 30px;
+    margin-bottom: 35px;
+    color: #3DA7C9;
+    position: relative;
+}
+
+.form-box h1::after{
+    content: '';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3DA7C9;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input-field{
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition:  max-height 0.5s;
+    overflow: hidden;
+}
+
+input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.input-field i{
+    margin-left: 15px;
+    color: #999;
+}
+
+form p{
+    text-align: left;
+    font-size: 12px;
+}
+form p a{
+    text-decoration: none;
+    color: #3DA7C9;
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.btn-field button{
+    flex-basis: 48%;
+    background: #3DA7C9;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.input-group{
+    height: 220px;
+}
+
+.btn-field button.disable{
+    background-color: #eaeaea;
+    color: #555;
+}
+
+.input-submit{
+    padding: 20px 0;
+}

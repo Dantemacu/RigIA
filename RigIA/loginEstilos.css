@@ -32,7 +32,7 @@ button#Submit{
     background: rgba(255, 255, 255, 0.75); /* */ 
     padding: 10px 20px 30px; /* */
     text-align: center;  /* alinea el texto y otros contenidos dentro del elemento al centro*/
-
+    border-radius: 6px;
 }
 
 .form-box h1{

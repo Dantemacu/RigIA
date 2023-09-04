@@ -1,0 +1,13 @@
+{
+  "name": "avanzado-base-de-datos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx nodemon app.js"
+    
+  },
+  "author": "",
+  "license": "ISC"
+}

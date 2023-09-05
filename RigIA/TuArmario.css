@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+
+:root{
+    --primary-color: #3DA7C9;
+}
+
+body{
+    margin: 0;
+    font-family: 'Manrope' , sans-serif;
+    text-decoration: none;
+    background-color: #f2f2f2;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+}
+
+.logo img{
+    padding-top: 1px;
+    height: 36px;
+    width: 38px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header span{
+    color: var(--primary-color);
+}
+
+div a{
+    margin: 5px;
+}
+
+nav i{
+    display: block;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    font-size: 1.6em;
+}
+
+p{
+    margin: 5px 0;
+    font-size: 95%;
+    text-decoration: underline;
+    color: #3F3F3F;
+}
+
+/* Animacion */
+
+nav {
+    position: fixed;
+    z-index: 10;
+    width: 0;
+    right: 0;
+    top: 0;
+    background: #FDFAFA;
+    height: 100vh;
+    padding: 1em;
+    transition: width 0.3s ease-in-out;
+    }
+
+li {
+    text-align: right;
+    padding: .3em;
+    list-style: none;
+}
+
+
+.barra-options {
+    position: fixed;
+    z-index: 10;
+    width: 200px;
+    right: -250px;
+    top: 0;
+    background: #FDFAFA;
+    height: 100vh;
+    overflow-x: hidden;
+    padding: 1em;
+    transition: right 0.3s ease-in-out;
+    margin-left: 15px;    
+}
+
+
+.barra-options.open {
+    right: 0px;
+}
+
+#barra-close {
+    cursor: pointer;
+}
+
+
+.barra{
+    padding-right: 15px;
+}

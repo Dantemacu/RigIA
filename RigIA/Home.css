@@ -1,38 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
 
-:root{
+:root {
     --primary-color: #3DA7C9;
 }
 
-body{
+body {
     margin: 0;
-    font-family: 'Manrope' , sans-serif;
+    font-family: 'Manrope', sans-serif;
     text-decoration: none;
     background-color: #f2f2f2;
 }
 
-.title-logo{
-    margin: 0 5px;;
+.title-logo {
+    margin: 0 5px;
+    ;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
-.logo img{
+.logo img {
     padding-top: 1px;
     height: 36px;
     width: 38px;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,50 +43,50 @@ header{
     padding: 10px;
 }
 
-header span{
+header span {
     color: var(--primary-color);
 }
 
 
-nav i{
+nav i {
     display: block;
 }
 
 .hero {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-top: 25px;
 }
 
-p{
+p {
     font-size: 85%;
 }
 
-h4{
+h4 {
     font-weight: 800;
     margin: 4px 0;
 }
 
-div.container{
+div.container {
     padding-bottom: 5px;
 }
 
-.container{
+.container {
     text-align: center;
 }
 
-.edit-perfil{
+.edit-perfil {
     background-color: #D8D4D4;
     border-radius: 3px;
-    
+
 }
 
-.Outfits{
+.Outfits {
     color: #3F3F3F;
     text-decoration-line: underline;
     margin-top: 4;
-    
+
 }
 
 .pie {
@@ -93,36 +94,36 @@ div.container{
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 20px;
-  }
-  
-  .item {
+}
+
+.item {
     position: relative;
     margin-bottom: 20px;
-  }
-  
-  
-  .item p {
+}
+
+
+.item p {
     font-size: 1.2em;
     position: absolute;
     bottom: 0;
     right: 0;
     padding: 0 10px 0 0;
     /* Estilos para los puntos suspensivos */
-  }
-  
+}
 
-.pie img{
-    padding-bottom: 20px;  
+
+.pie img {
+    padding-bottom: 20px;
     position: relative;
 }
 
-.pie p{
+.pie p {
     position: absolute;
     bottom: 20px;
     right: 1px;
 }
 
-.conf{
+.conf {
     list-style: none;
 
 }
@@ -139,7 +140,7 @@ nav {
     height: 100vh;
     padding: 1em;
     transition: width 0.3s ease-in-out;
-    }
+}
 
 li {
     text-align: right;
@@ -157,7 +158,7 @@ li {
     height: 100vh;
     padding: 1em;
     transition: right 0.3s ease-in-out;
-    margin-left: 15px;    
+    margin-left: 15px;
 }
 
 
@@ -166,6 +167,42 @@ li {
 }
 
 
-.barra{
+.barra {
     padding-right: 15px;
+}
+
+.barrita-drawer{
+    border-radius: 27px;
+    font-size: .2em;
+    margin-top: 10px;
+    color: #ADACAC;
+    background-color: #ADACAC;
+}
+
+.drawer ul{
+    /* sacarle el diseño a la lista*/
+    list-style: none;
+    padding: 0;    
+    
+}
+
+.drawer {
+    border: 1px;
+    background: #E3E3E3;    
+    width: 100vw;
+    position: fixed;
+    height: 100vh;
+    top: 0vh;
+    left: 0;
+    transition: top 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.drawer.open {
+    top: 0;
 }

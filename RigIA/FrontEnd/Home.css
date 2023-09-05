@@ -172,6 +172,9 @@ li {
 }
 
 .barrita-drawer{
+    width: 15%;
+    text-align: center;
+    margin-left: 45%;
     border-radius: 27px;
     font-size: .2em;
     margin-top: 10px;
@@ -180,29 +183,30 @@ li {
 }
 
 .drawer ul{
-    /* sacarle el diseño a la lista*/
     list-style: none;
-    padding: 0;    
-    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.drawer {
+.drawer {    
     border: 1px;
     background: #E3E3E3;    
     width: 100vw;
     position: fixed;
-    height: 100vh;
-    top: 0vh;
+    height: 0vh;
+    bottom: 0;
     left: 0;
     transition: top 0.3s ease-in-out;
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-end;
 
 }
 
 .drawer.open {
-    top: 0;
+    height: 40vh;
 }

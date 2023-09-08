@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&display=swap');
+
+:root {
+    --primary-color: #3DA7C9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    text-decoration: none;
+    background-color: #f2f2f2;
+}
+
+.title-logo {
+    margin: 0 5px;
+    ;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    padding-top: 1px;
+    height: 36px;
+    width: 38px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+header span {
+    color: var(--primary-color);
+}
+
+
+nav i {
+    display: block;
+}
+
+
+
+/* Animacion */
+
+nav {
+    position: fixed;
+    z-index: 10;
+    width: 0;
+    right: 0;
+    top: 0;
+    background: #FDFAFA;
+    height: 100vh;
+    padding: 1em;
+    transition: width 0.3s ease-in-out;
+}
+
+li {
+    text-align: right;
+    padding: .3em;
+    list-style-type: none;
+}
+
+
+.barra-options {
+    position: fixed;
+    z-index: 10;
+    width: 200px;
+    right: -250px;
+    top: 0;
+    background: #FDFAFA;
+    height: 100vh;
+    padding: 1em;
+    transition: right 0.3s ease-in-out;
+    margin-left: 15px;
+    
+}
+
+
+.barra-options.open {
+    right: 0px;
+    
+}
+
+
+.barra {
+    padding-right: 15px;
+}
+
+main{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    font-size: .8em;
+    margin-top: 15px;
+}
+
+main h2 {
+    padding: 8px 0;
+}
+
+main p{
+    text-align: left;
+    margin: 5px 0;
+    padding-left: 20px;
+    font-size: 1.2em;
+    text-decoration: underline;
+    color: #7E7E7E;
+}
+
+main img{
+    padding: 5px 5px 10px 5px;
+}

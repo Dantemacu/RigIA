@@ -100,6 +100,7 @@ main{
 
 main h1{
     font-size: 1.5em;
+    padding-top: 15px;
 }
 
 main button{
@@ -163,7 +164,7 @@ main button:active{
     background: #E3E3E3;    
     width: 100vw;
     position: fixed;
-    height: 30vh;
+    height: 0vh;
     bottom: 0;
     left: 0;
     transition: height 0.3s ease-in-out;
@@ -171,12 +172,29 @@ main button:active{
     align-items: center;
     text-align: center;
     justify-content: flex-end;
+}
 
+.drawer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 10px 10px 0 0;
+}
 
+p{
+    margin: 0px;
+}
+
+.texto-liso{
+    margin: 10px;
+    text-decoration-line: underline;
+    color: #3F3F3F;
+    font-size: .9em;
 }
 
 .drawer.open {
-    height: 35vh;
+    height: 40vh;
 }
 
 .drawer-background {

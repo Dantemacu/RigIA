@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     if ($stmt_insert->execute()) {
                         echo "Registro exitoso";
-                        header("location: ./Home.html");
+                        header("location: /FrontEnd/Home.html");
                     } else {
                         echo "Error al registrar el usuario: " . $stmt_insert->error;
                     }

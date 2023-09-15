@@ -9,6 +9,8 @@
     <script src="Home.js"></script>
 </head>
 <body>
+
+    <script src="drawer-prenda.js"></script>
     
     <header>
         <div class="logo">
@@ -35,9 +37,34 @@
     <main>
         <h1>Subir Prenda</h1>
     
-        <button>Subir tu prenda aca <i class="fa-solid fa-arrow-down"></i></button>
+        <button id="open-drawer">Subir tu prenda aca <i class="fa-solid fa-arrow-down"></i></button>
 
     </main> 
+
+    <div class="drawer">
+        <div class="barrita-drawer">
+          <p id="close-drawer">--------</p>
+        </div>
+
+        <div class="drawer-content">
+
+            <div class="image-item">
+              <button><img src="/RigIA/Images/Group 38Camara.png" alt=""></button>
+              <p>Cámara</p>
+            </div>
+
+            <div class="image-item">
+              <button><img src="/RigIA/Images/Group 39Galeria.png" alt=""></button>
+              <p>Galeria</p>
+            </div>
+
+        </div>
+
+        <p class="texto-liso"> Intentá que la foto tenga un fondo liso y que la prenda este bien estirada</p>
+
+    </div>
+    
+      <div class="drawer-background" id="drawer-background"></div>
 
 </body>
 </html>

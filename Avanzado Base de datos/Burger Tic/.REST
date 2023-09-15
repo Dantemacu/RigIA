@@ -1,0 +1,21 @@
+POST http://localhost:9000/pedido HTTP/1.1
+Content-Type: application/json
+
+{
+    "productos": [
+        {
+            "id": 1,
+            "cantidad": 3
+        },
+        {
+            "id": 2,
+            "cantidad": 1
+        }
+    ]
+}
+
+###
+//si no existe un plato con el id pasado como parámetro, devolver un código de status 404
+if (!plato) return{
+res.status(404).json({ msg: 'Plato no encontrado' });
+}

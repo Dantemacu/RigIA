@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $row = $result->fetch_assoc();
                     if (password_verify($Contrasenia, $row["Contrasenia"])) {
                         echo "Inicio de sesión exitoso.";
-                        header("location: ../Home.html");
+                        header("location: Home.html");
                     } else {
                         echo "Contraseña incorrecta. No se puede iniciar sesión.";
                     }

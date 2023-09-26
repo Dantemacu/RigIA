@@ -1,5 +1,5 @@
 <?php
-require 'DbConfiguracion.php';
+/*require 'DbConfiguracion.php';
 
 // Verificar si se ha enviado un formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     if ($stmt_insert->execute()) {
                         echo "Registro exitoso";
-                        header("location: /FrontEnd/Home.html");
+                        header("location: ../FrontEnd/Home.html");
                     } else {
                         echo "Error al registrar el usuario: " . $stmt_insert->error;
                     }
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $row = $result->fetch_assoc();
                     if (password_verify($Contrasenia, $row["Contrasenia"])) {
                         echo "Inicio de sesión exitoso.";
-                        header("location: Home.html");
+                        header("location: ../FrontEnd/Home.html");
                     } else {
                         echo "Contraseña incorrecta. No se puede iniciar sesión.";
                     }
@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
             <form id="authForm" action="" method="POST">
-            <input type="hidden" name="form_type" value="register"> <!-- Valor "register" para el formulario de registro -->
+            <input type="hidden" name="form_type" id="form_type" value=""> <!-- Valor "register" para el formulario de registro -->
                 <div class="input-group">
                     <div class="input-field" id="nameField">
                         <i class="fas fa-user"></i>
@@ -136,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             //authForm.setAttribute("action", "SignUpQuery.php"); // Cambiar la acción del formulario para el inicio de sesión
             nameInput.setAttribute("name", "Nombre2"); // Cambiar el atributo name del input de nombre
             passwordInput.setAttribute("name", "Contrasenia2"); // Cambiar el atributo name del input de contraseña
-            document.getElementById("form_type").value = "login"; 
+            document.getElementById("form_type").value = "login";  
         }
 
 
@@ -154,4 +155,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </script>
 </body>
 </html>
-header

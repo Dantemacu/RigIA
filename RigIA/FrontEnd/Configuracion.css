@@ -32,10 +32,11 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 60px;
     background-color: white;
     text-decoration: none;
     padding: 10px;
+    border-bottom: 1px solid black ;
 }
 
 header span{
@@ -49,6 +50,8 @@ div a{
 nav i{
     display: block;
 }
+
+
 
 main{
     display: flex;
@@ -79,7 +82,7 @@ nav {
     right: 0;
     top: 0;
     background: #FDFAFA;
-    height: 100vh;
+    height: 1000vh;
     padding: 1em;
     transition: width 0.3s ease-in-out;
     }

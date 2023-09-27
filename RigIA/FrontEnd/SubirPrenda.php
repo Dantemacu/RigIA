@@ -16,7 +16,7 @@
     <header>
         <div class="logo">
             <img src="../Images/Logo.png" alt="logo">
-            <a href="#">Rig<span>IA</span></a>
+            <a href="Home.html">Rig<span>IA</span></a>
         </div>
         
         <div class="barra">
@@ -34,7 +34,7 @@
             </ul>
         </nav>
     </header>
-
+    
     <main>
         <h1>Subir Prenda</h1>
     

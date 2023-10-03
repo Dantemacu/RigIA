@@ -63,6 +63,19 @@ p {
     font-size: 85%;
 }
 
+p.edit-perfil{
+    width: 50%;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+p.edit-perfil a{
+    display: inline-block;
+}
+
 h4 {
     font-weight: 800;
     margin: 4px 0;
@@ -70,6 +83,7 @@ h4 {
 
 div.container {
     padding-bottom: 5px;
+    flex-direction: column;
 }
 
 .container {

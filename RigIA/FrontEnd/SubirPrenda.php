@@ -50,7 +50,7 @@
         <div class="drawer-content">
 
             <div class="image-item">
-              <button><img src="../Images/Group 38Camara.png" alt=""></button>
+              <button id="camara-btn"><img src="../Images/Group 38Camara.png" alt=""></button>
               <p>Cámara</p>
             </div>
 
@@ -70,7 +70,12 @@
       <div class="drawer-background" id="drawer-background"></div>
 <script>
     document.getElementById("galeriaBtn").addEventListener("click", function() {
-    document.getElementById("galeriaInput").click();});
+        document.getElementById("galeriaInput").click();
+    });
+
+    document.getElementById("camera-btn").addEventListener("click", function() {
+        
+    });
 </script>
 </body>
 </html>

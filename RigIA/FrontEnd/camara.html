@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <input type='file' accept="image/*" id="imgInp" />
-        <img id="blah" src="#" alt="your image" />
-    </form>
-</body>
-</html>
+<link rel="stylesheet" href="camara.css">
+<script src="camara.js"></script>
+<div class="contentarea">
+    <div class="camera">
+      <video id="video">Video stream not available.</video>
+      <button id="startbutton"> . </button>
+    </div>
+    <canvas id="canvas"> </canvas>
+    <div class="output">
+      <img id="photo" alt="The screen capture will appear in this box." />
+    </div>
+    
+  </div>
+  

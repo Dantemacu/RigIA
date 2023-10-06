@@ -1,4 +1,3 @@
-
 <?php
 require 'DbConfiguracion.php';
 ?>
@@ -9,7 +8,7 @@ require 'DbConfiguracion.php';
     <title>Iniciar Sesión</title>
 </head>
 <body>
-    <h2>Sign In</h2>
+    <h2>Iniciar Sesión</h2>
     <form method="post" action="">
         <label for="nombre_mail">Nombre o correo electrónico:</label>
         <input type="text" id="nombre_mail" name="nombre_mail" required><br>
@@ -20,8 +19,7 @@ require 'DbConfiguracion.php';
         <input type="submit" value="Enviar"><br><br>
     </form>
 
-    <a href="./Registro.php">Sign Up</a>
-    <a href="./InicioSesion.php">Sign In<br></a>
+    <a href="./Registro.php">Registrarse</a>
 </body>
 </html>
 <?php
@@ -36,12 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ContraseniaInicio = $_POST["ContraseniaInicio"];
 
     // Consulta para verificar las credenciales
-    $sql = "SELECT * FROM InicioSesion WHERE (Nombre = ? OR Mail = ?) AND ContraseniaInicio = ?";
+    $sql = "SELECT * FROM InicioSesion WHERE (Nombre = ? OR Mail = ?) AND Contrasenia = ?";
     $stmt_sql = $mysqli->prepare($sql);
-    $stmt_sql->bind_param("sss",$nombre_mail, $nombre_mail, $ContraseniaInicio);
+    $stmt_sql->bind_param("sss", $nombre_mail, $nombre_mail, $ContraseniaInicio);
     $stmt_sql->execute();
     $stmt_sql->store_result();
-    
     
     if ($stmt_sql->num_rows > 0) {
         echo "Inicio de sesión exitoso.";
@@ -53,12 +50,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Cerrar la conexión
 $mysqli->close();
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <br> Olvidaste tu contraseña?
-        <a href="./OlvidasteContra.php">Click aca</a>
-    </body>
-

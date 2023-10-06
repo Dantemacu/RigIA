@@ -1,4 +1,5 @@
 <?php 
+
 $_ENV = parse_ini_file('.env');
 $mysqli = mysqli_init();
 $mysqli->ssl_set(NULL, NULL, "./cacert.pem", NULL, NULL);

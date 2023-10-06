@@ -1,5 +1,75 @@
+<!--VERIFICACIÓN NOMBRE REPETIDO-->
 <?php
 require 'DbConfiguracion.php';
+
+
+
+// Verificar la conexión
+if ($mysqli->connect_error) {
+    die("Conexión fallida: " . $mysqli->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST['Nombre'])) {
+        $nombre = $_POST["Nombre"];
+    }
+    $query_check_duplicate = "SELECT Nombre FROM InicioSesion WHERE Nombre = ?";
+    $stmt_check_duplicate = $mysqli->prepare($query_check_duplicate);
+    $stmt_check_duplicate->bind_param("s", $nombre);
+    $stmt_check_duplicate->execute();
+    $stmt_check_duplicate->store_result();
+
+    if ($stmt_check_duplicate->num_rows > 0) {
+        echo "El nombre ya está en uso. Por favor, elige otro.";
+    } else {
+        $mail = $_POST["Mail"];
+        $query_check_mail = "SELECT Mail FROM InicioSesion WHERE Mail = ?";
+        $stmt_check_mail = $mysqli->prepare($query_check_mail);
+        $stmt_check_mail->bind_param("s", $mail);
+        $stmt_check_mail->execute();
+        $stmt_check_mail->store_result();
+
+        if ($stmt_check_mail->num_rows > 0) {
+            echo "El correo electrónico ya está en uso. Por favor, elige otro.";
+        } else {
+            $query_insert = "INSERT INTO InicioSesion (Nombre, Mail, Contrasenia) VALUES (?, ?, ?)";
+            $stmt_insert = $mysqli->prepare($query_insert);
+            $stmt_insert->bind_param("sss", $_POST["Nombre"], $_POST["Mail"], $_POST["Contrasenia"]);
+
+            if ($stmt_insert->execute()) {
+                echo "Registro exitoso";
+                header("location: ../FrontEnd/Home.html");
+            } else {
+                echo "Error al registrar: " . $stmt_insert->error;
+            }
+        }
+    }
+}
+
+
+
+// Verificar el formulario de inicio de sesión
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['Nombre'])) {
+        $Mail2 = $_POST["Mail2"];
+    }
+    $Nombre2 = $_POST["Nombre2"];
+    $Contrasenia2 = $_POST["Contrasenia2"];
+
+    // Consulta para verificar las credenciales
+    $sql = "SELECT * FROM InicioSesion WHERE (Nombre = ? OR Mail = ?) AND Contrasenia = ?";
+    $stmt_sql = $mysqli->prepare($sql);
+    $stmt_sql->bind_param("sss", $Nombre2, $Mail2, $Contrasenia2);
+    $stmt_sql->execute();
+    $stmt_sql->store_result();
+
+    if ($stmt_sql->num_rows > 0) {
+        echo "Inicio de sesión exitoso.";
+        header("location: ../FrontEnd/Home.html");
+    } else {
+        echo "Credenciales incorrectas. No se puede iniciar sesión.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,8 +77,8 @@ require 'DbConfiguracion.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login y Registro</title>
-    <link rel="stylesheet" href="SignUpSignIn.css">
+    <title>Login y Registration</title>
+    <link rel="stylesheet" href="../FrontEnd/loginEstilos.css">
     <script src="https://kit.fontawesome.com/a6f001e2da.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,7 +106,7 @@ require 'DbConfiguracion.php';
                 </div>
                 <div class="input-submit">
                     <button type="submit" name="submitButton" class="submit" id="Submit">
-                        Ingresar
+                        Registrarse
                     </button>
                 </div>
                 <div class="btn-field">
@@ -59,25 +129,24 @@ require 'DbConfiguracion.php';
         const submit = document.getElementById("Submit");
 
         signinBtn.onclick = function() {
-            event.preventDefault(); 
             nameField.style.maxHeight = "0";
             title.innerHTML = "Iniciar Sesión";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
             Submit.innerHTML = "Ingresar";
             //authForm.setAttribute("action", "SignUpQuery.php"); // Cambiar la acción del formulario para el inicio de sesión
             nameInput.setAttribute("name", "Nombre2"); // Cambiar el atributo name del input de nombre
+            nameInput.setAttribute("Mail", "Mail2"); 
             passwordInput.setAttribute("name", "Contrasenia2"); // Cambiar el atributo name del input de contraseña
             document.getElementById("form_type").value = "login";  
         }
 
 
         signupBtn.onclick = function() {
-            event.preventDefault(); 
             nameField.style.maxHeight = "60px";
             title.innerHTML = "Registrarse";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
             Submit.innerHTML = "Registrarse";
             //authForm.setAttribute("action", "signup-action.php"); // Cambiar la acción del formulario para el registro
             nameInput.setAttribute("name", "Nombre"); // Restaurar el atributo name del input de nombre
@@ -88,69 +157,3 @@ require 'DbConfiguracion.php';
 </body>
 </html>
 
-<?php
-// Verificar si se ha enviado un formulario
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (isset($_POST["form_type"])) {
-        $form_type = $_POST["form_type"];
-
-        if ($form_type === "register") {
-            // Procesar el formulario de registro
-            $nombre = isset($_POST['Nombre']) ? $_POST['Nombre'] : '';
-            $mail = isset($_POST['Mail']) ? $_POST['Mail'] : '';
-            $contrasenia = isset($_POST['Contrasenia']) ? $_POST['Contrasenia'] : '';
-
-            // Validar campos en blanco
-            if (empty($nombre) || empty($mail) || empty($contrasenia)) {
-                echo "Todos los campos son obligatorios. Por favor, completa todos los campos.";
-            } else {
-                // Verificar si el nombre o el correo electrónico ya existen
-                $query_check_duplicate = "SELECT Nombre, Mail FROM InicioSesion WHERE Nombre = ? OR Mail = ?";
-                $stmt_check_duplicate = $mysqli->prepare($query_check_duplicate);
-                $stmt_check_duplicate->bind_param("ss", $nombre, $mail);
-                $stmt_check_duplicate->execute();
-                $stmt_check_duplicate->store_result();
-
-                if ($stmt_check_duplicate->num_rows > 0) {
-                    echo "El nombre o el correo electrónico ya están en uso. Por favor, elige otros.";
-                } else {
-                    // Insertar el nuevo usuario en la base de datos
-                    $query_insert = "INSERT INTO InicioSesion (Nombre, Mail, Contrasenia) VALUES (?, ?, ?)";
-                    $stmt_insert = $mysqli->prepare($query_insert);
-                    $stmt_insert->bind_param("sss", $nombre, $mail, $contrasenia);
-
-                    if ($stmt_insert->execute()) {
-                        echo "Registro exitoso";
-                        header("location: ../FrontEnd/Home.html");
-                    } else {
-                        echo "Error al registrar el usuario: " . $stmt_insert->error;
-                    }
-                }
-            }
-        }
-            //INICIO DE SESION
-            // Verificar la conexión
-    if ($mysqli->connect_error) {
-        die("Conexión fallida: " . $mysqli->connect_error);
-    }
-
-    // Verificar el formulario de inicio de sesión
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $nombre_mail = $_POST["nombre_mail"];
-        $ContraseniaInicio = $_POST["ContraseniaInicio"];
-
-        // Consulta para verificar las credenciales
-        $sql = "SELECT * FROM InicioSesion WHERE (Nombre = ? OR Mail = ?) AND Contrasenia = ?";
-        $stmt_sql = $mysqli->prepare($sql);
-        $stmt_sql->bind_param("sss", $nombre_mail, $nombre_mail, $ContraseniaInicio);
-        $stmt_sql->execute();
-        $stmt_sql->store_result();
-        
-        if ($stmt_sql->num_rows > 0) {
-            echo "Inicio de sesión exitoso.";
-            header("location: Menu.php");
-        } else {
-            echo "Credenciales incorrectas. No se puede iniciar sesión.";
-        }
-    }
-?>

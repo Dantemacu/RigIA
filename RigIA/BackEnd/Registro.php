@@ -1,39 +1,11 @@
 <?php
 require 'DbConfiguracion.php';
-?>
-
-<!--=====HTML======-->  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h2> Sign Up </h2>
-  <!-- Formulario -->
-  <form action="" method="POST">
-    <label for="Nombre">Nombre:</label>
-    <input type="text" name="Nombre"><br>
-    
-    <label for="Mail">Mail:</label>
-    <input type="email" name="Mail"><br>
-    
-    <label for="Contrasenia">Contraseña:</label>
-    <input type="password" name="Contrasenia"><br>
-    
-    <input type="submit" value="Enviar"><br><br>
-  </form>
-  <a href="./Registro.php">Sign Up</a>
-  <a href="./InicioSesion.php">Sign In</a>
-</body>
-</html>
 
 
-<!--VERIFICACIÓN NOMBRE REPETIDO-->
-<?php
+
+
+
+//--VERIFICACIÓN NOMBRE REPETIDO-->
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $nombre = $_POST["Nombre"];
   $query_check_duplicate = "SELECT Nombre FROM InicioSesion WHERE Nombre = ?";
@@ -62,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
           if ($stmt_insert->execute()) {
               echo "Actualización exitosa";
-              header("location: Menu.php");
+              header("location: ../FrontEnd/Home.html");
           } else {
               echo "Error al actualizar: " . $stmt_insert->error;
           }

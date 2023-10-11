@@ -11,7 +11,7 @@
     <div class="container">
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
-            <form id="authForm" action="" method="POST">
+            <form id="authForm" action="Registro.php" method="POST">
             <input type="hidden" name="form_type" id="form_type" value=""> <!-- Valor "register" para el formulario de registro -->
                 <div class="input-group">
                     <div class="input-field" id="nameField">
@@ -21,7 +21,7 @@
 
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" name="Mail" id="emailInput" placeholder="Email">
+                        <input type="email" name="Mail" id="mailInput" placeholder="Email">
                     </div>
 
                     <div class="input-field">
@@ -53,6 +53,7 @@
         let Submit = document.getElementById("Submit");
         let authForm = document.getElementById("authForm");
         let nameInput = document.getElementById("nameInput");
+        let mailInput = document.getElementById("mailInput");
         let passwordInput = document.getElementById("passwordInput");
         const submit = document.getElementById("Submit");
 
@@ -64,8 +65,9 @@
             signinBtn.classList.remove("disable");
             Submit.innerHTML = "Ingresar";
             //authForm.setAttribute("action", "SignUpQuery.php"); // Cambiar la acción del formulario para el inicio de sesión
+            authForm.setAttribute("action", "InicioBack.php"); 
             nameInput.setAttribute("name", "Nombre2"); // Cambiar el atributo name del input de nombre
-            nameInput.setAttribute("Mail", "Mail2"); 
+            mailInput.setAttribute("name", "Mail2"); 
             passwordInput.setAttribute("name", "Contrasenia2"); // Cambiar el atributo name del input de contraseña
             document.getElementById("form_type").value = "login";  
         }
@@ -80,6 +82,7 @@
             Submit.innerHTML = "Registrarse";
             //authForm.setAttribute("action", "signup-action.php"); // Cambiar la acción del formulario para el registro
             nameInput.setAttribute("name", "Nombre"); // Restaurar el atributo name del input de nombre
+            authForm.setAttribute("action", "Registro.php"); 
             passwordInput.setAttribute("name", "Contrasenia"); // Restaurar el atributo name del input de contraseña
             document.getElementById("form_type").value = "register";
         }

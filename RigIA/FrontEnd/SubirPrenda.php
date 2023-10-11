@@ -55,13 +55,17 @@
             </div>
 
             <div class="image-item">
-                <button id="galeriaBtn"><img src="../Images/Group 39Galeria.png" alt=""></button>
-                <p>Galeria</p>
-                <input type="file" id="galeriaInput" style="display: none;" accept="image/*">
-                <label for="galeriaInput"></label>
-            </div>
-
-        </div>
+    
+            <form id="subirFotoForm" action="SubirFoto2.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="form_type" value="galeria">
+                <!-- Botón de galería con redirección -->
+                <button id="galeriaBtn" type="button" onclick="window.location.href='SubirFoto2.php'">
+                <img src="../Images/Group 39Galeria.png" alt="">
+            </button>
+            <p>Galeria</p>
+        </form>
+    </div>
+</div>
 
         <p class="texto-liso"> (La foto debe tener un fondo liso y la prenda debe estar bien estirada)</p>
 
@@ -79,60 +83,3 @@
 </script>
 </body>
 </html>
-
-
-<?php
-/*include("conexion.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['guardar'])) {
-        if (isset($_FILES['archivo']) && isset($_FILES['archivo']['name'])) {
-            // Procesar la subida de imágenes
-            $archivo = $_FILES['archivo']['name'];
-
-            if ($archivo != "") {
-                $tipo = $_FILES['archivo']['type'];
-                $tamano = $_FILES['archivo']['size'];
-                $temp = $_FILES['archivo']['tmp_name'];
-
-                $carpetaDestino = 'C:/xampp/htdocs/ProyectoClothify/Clothify/Imagenes/';
-                $rutaArchivo = $carpetaDestino . $archivo;
-
-                if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
-                    echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
-                    - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
-                } else {
-                    if (move_uploaded_file($temp, $rutaArchivo)) {
-                        // Procesar el formulario de guardar nombre y descripción
-                        $nombre = $_POST['nombre'];
-                        $descripcion = $_POST['descripcion'];
-
-                        if (strlen($nombre) <= 100 && strlen($descripcion) <= 200) {
-                            // Insertar los datos en la base de datos
-                            $sql = "INSERT INTO Rigia (Imagenes, nombre_prenda, descripcion, nombre_archivo, tipo_archivo) VALUES (?, ?, ?, ?, ?)";
-                            $stmt = $mysqli->prepare($sql);
-                            $stmt->bind_param("sssss", $archivo, $nombre, $descripcion, $archivo, $tipo);
-
-                            if ($stmt->execute()) {
-                                echo "Datos guardados correctamente.";
-                            } else {
-                                echo "Error al guardar los datos: " . $mysqli->error;
-                            }
-
-                            $stmt->close();
-                        } else {
-                            echo "Error: El nombre debe tener menos de 100 caracteres y la descripción menos de 200 caracteres.";
-                        }
-                    } else {
-                        echo '<div><b>Error al mover el archivo a la carpeta de destino.</b></div>';
-                    }
-                }
-            } else {
-                echo "Por favor, selecciona un archivo para subir.";
-            }
-        } else {
-            echo "Por favor, selecciona un archivo para subir.";
-        }
-    }
-}*/
-?>

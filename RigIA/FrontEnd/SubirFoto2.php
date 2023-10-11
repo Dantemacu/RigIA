@@ -1,6 +1,7 @@
 <?php
-require 'DbConfiguracion.php';
+require("DbConfiguracion.php");
 
+ 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['guardar'])) {
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $tamano = $_FILES['archivo']['size'];
                 $temp = $_FILES['archivo']['tmp_name'];
 
-                $carpetaDestino = 'C:/xampp/htdocs/ProyectoClothify/Clothify/Imagenes/';
+                $carpetaDestino = 'C:/xampp/htdocs/RigIA/RigIA/ImagenesPrendas/';
                 $rutaArchivo = $carpetaDestino . $archivo;
 
                 if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
@@ -22,17 +23,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     if (move_uploaded_file($temp, $rutaArchivo)) {
                         // Procesar el formulario de guardar nombre y descripción
-                        $nombre = $_POST['nombre'];
+                        $nombre = $_POST['nomarch'];
+                        $nombrePrenda=$_POST['nombre_prenda'];
                         $descripcion = $_POST['descripcion'];
 
-                        if (strlen($nombre) <= 100 && strlen($descripcion) <= 200) {
+                        if (strlen($nombrePrenda) <= 100 && strlen($descripcion) <= 200) {
                             // Insertar los datos en la base de datos
                             $sql = "INSERT INTO imagenes (nombre_prenda, descripcion, nombre_archivo, tipo_archivo) VALUES (?, ?, ?, ?)";
                             $stmt = $mysqli->prepare($sql);
-                            $stmt->bind_param("ssss", $nombre, $descripcion, $archivo, $tipo);
+                            $stmt->bind_param("ssss", $nombrePrenda, $descripcion, $archivo, $tipo);
 
                             if ($stmt->execute()) {
                                 echo "Datos guardados correctamente.";
+                                header ('location: SubirPrenda.php');
                             } else {
                                 echo "Error al guardar los datos: " . $mysqli->error;
                             }
@@ -58,20 +61,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Armario</title>
+<title>Mi Armario</title>
 </head>
 <body>
     <h1>Mi Armario</h1>
-    <form action="MiArmario.php" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         Añadir imagen: <input name="archivo" id="archivo" type="file"/><br><br>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" maxlength="100" required><br><br>
+        <label for="nombre_prenda">Nombre de la prenda:</label>
+        <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
+
+        <label for="tipo">Tipo de prenda:</label>
+        <input type="text" name="tipo" id="tipo" maxlength="100" required><br><br>
 
         <label for="descripcion">Descripción:</label>
         <textarea name="descripcion" id="descripcion" maxlength="200" required></textarea><br><br>
 
-        <input type="submit" name="guardar" value="Guardar">
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color" maxlength="100"><br><br>
+
+        <!-- Otros campos de entrada -->
+
+        <!-- Agrega el botón de envío -->
+        <input type="submit" name="guardar" value="Enviar">
     </form>
 </body>
 </html>

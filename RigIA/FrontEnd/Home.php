@@ -32,6 +32,7 @@
         <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
         <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
       </ul>
+      
     </nav>
 
 
@@ -48,9 +49,12 @@
     </div>
   </section>
 
+
+
   <div class="pie">
     <div class="item">
-      <img src="../Images/Cuadrado.png" alt="TuOutfit">
+      <!-- Agrega un elemento img para mostrar la imagen recién subida -->
+      <img id="imagenRecienSubida" src="" alt="Imagen recién subida">
       <a class="open-drawer">
         <p class="punto-open">...</p>
       </a>
@@ -81,16 +85,27 @@
       <p id="close-drawer">--------------------------</p>
     </div>
     <ul>
-      <li>Añadir a favoritos</li> 
-      <!--<li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>-->
-      <li>Añadir etiqueta</li>
-      <li>Editar etiqueta</li>
-      <li>Editar Nombre</li>
+      <a href="" id="addFavorites">Añadir a favoritos</a> 
+      <a href=""id="addTag">Añadir etiqueta</a>
+      <a href=""id="editTag">Editar etiqueta</a>
+      <a href=""id="editName">Editar Nombre</a>
     </ul>
   </div>
 
   <div class="drawer-background" id="drawer-background"></div>
-
 </body>
+<script>
+  // Después de cargar la página o cuando sea necesario, actualiza la imagen
+// Esto podría hacerse en una función, un evento o cualquier otro lugar adecuado
+const imgElement = document.getElementById("imagenRecienSubida");
+const urlImagenRecienSubida = "C:\xampp\htdocs\RigIA\RigIA\ImagenesPrendas"; // Reemplaza con la URL real
 
+// Verifica si la URL de la imagen es válida y, si es así, actualiza la imagen
+if (urlImagenRecienSubida) {
+  imgElement.src = urlImagenRecienSubida;
+}
+
+</script>
 </html>
+
+<?php

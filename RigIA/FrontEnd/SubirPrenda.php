@@ -16,7 +16,7 @@
     <header>
         <div class="logo">
             <img src="../Images/Logo.png" alt="logo">
-            <a href="Home.html">Rig<span>IA</span></a>
+            <a href="Home.php">Rig<span>IA</span></a>
         </div>
         
         <div class="barra">
@@ -26,7 +26,7 @@
         <nav class="barra-options">
             <i id="barra-close" class="fa-solid fa-xmark"></i>
             <ul class="conf">
-                <li> <i class="fa-solid fa-user"></i> <a href="Home.html">Perfil</a></li>
+                <li> <i class="fa-solid fa-user"></i> <a href="Home.php">Perfil</a></li>
                 <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
                 <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
                 <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>

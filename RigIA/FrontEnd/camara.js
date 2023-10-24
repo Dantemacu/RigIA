@@ -18,6 +18,8 @@
   let canvas = null;
   let photo = null;
   let startbutton = null;
+  let confirmbutton = null;
+
 
   function showViewLiveResultButton() {
     if (window.self !== window.top) {
@@ -29,6 +31,7 @@
       button.textContent = "View live result of the example code above";
       document.body.append(button);
       button.addEventListener("click", () => window.open(location.href));
+      
       return true;
     }
     return false;
@@ -42,6 +45,8 @@
     canvas = document.getElementById("canvas");
     photo = document.getElementById("photo");
     startbutton = document.getElementById("startbutton");
+    confirmbutton = document.getElementById("confirmbutton");
+    
 
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: false })
@@ -80,10 +85,29 @@
       "click",
       (ev) => {
         takepicture();
-        document.getElementById("video").style.display = "none";
+        video.style.display = "none";
+        photo.style.display = "block";
+        confirmbutton.style.display = "block";
+        startbutton.style.display = "none";
         ev.preventDefault();
       },
       false,
+    );
+
+    confirmbutton.addEventListener(
+      "click",
+      (ev) => {
+        // Aquí puedes implementar la lógica para subir la foto.
+        // Por ejemplo, puedes enviarla a un servidor o realizar alguna acción adicional.
+        // Luego puedes reiniciar la cámara si es necesario.
+        video.style.display = "block";
+        photo.style.display = "none";
+        confirmbutton.style.display = "none";
+        startbutton.style.display = "block";
+        clearphoto();
+        ev.preventDefault();
+      },
+      false
     );
 
     clearphoto();

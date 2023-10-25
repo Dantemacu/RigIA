@@ -50,7 +50,7 @@
         <div class="drawer-content">
 
             <div class="image-item">
-              <button id="camara-btn"><img src="../Images/Group 38Camara.png" alt=""></button>
+              <button id="camara-btn" onclick="window.location.href='camara.html'"><img src="../Images/Group 38Camara.png" alt=""></button>
               <p>Cámara</p>
             </div>
 

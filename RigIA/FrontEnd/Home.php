@@ -34,8 +34,6 @@
       </ul>
       
     </nav>
-
-
   </header>
 
   <section class="hero">
@@ -49,8 +47,6 @@
     </div>
   </section>
 
-
-
   <div class="pie">
     <div class="item">
       <!-- Agrega un elemento img para mostrar la imagen recién subida -->
@@ -59,6 +55,7 @@
         <p class="punto-open">...</p>
       </a>
     </div>
+    
     <div class="item">
       <img src="../Images/Cuadrado.png" alt="TuOutfit">
       <a class="open-drawer">
@@ -79,33 +76,25 @@
 </div>
   </div>
 
-
   <div class="drawer">
     <div class="barrita-drawer">
       <p id="close-drawer">--------------------------</p>
     </div>
     <ul>
       <a href="" id="addFavorites">Añadir a favoritos</a> 
-      <a href=""id="addTag">Añadir etiqueta</a>
-      <a href=""id="editTag">Editar etiqueta</a>
-      <a href=""id="editName">Editar Nombre</a>
+      <a href="" id="addTag">Añadir etiqueta</a>
+      <a href="" id="editTag">Editar etiqueta</a>
+      <a href="" id="editName">Editar Nombre</a>
     </ul>
   </div>
 
   <div class="drawer-background" id="drawer-background"></div>
 </body>
-<script>
-  // Después de cargar la página o cuando sea necesario, actualiza la imagen
-// Esto podría hacerse en una función, un evento o cualquier otro lugar adecuado
-const imgElement = document.getElementById("imagenRecienSubida");
-const urlImagenRecienSubida = "C:\xampp\htdocs\RigIA\RigIA\ImagenesPrendas"; // Reemplaza con la URL real
-
-// Verifica si la URL de la imagen es válida y, si es así, actualiza la imagen
-if (urlImagenRecienSubida) {
-  imgElement.src = urlImagenRecienSubida;
-}
-
-</script>
 </html>
-
+<!-- Después de cargar la página o en el lugar adecuado -->
 <?php
+if (isset($_SESSION['urlImagenRecienSubida'])) {
+    $urlImagenRecienSubida = $_SESSION['urlImagenRecienSubida'];
+    echo '<img src="' . $urlImagenRecienSubida . '" alt="Imagen recién subida">';
+}
+?>

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
           if ($stmt_insert->execute()) {
               echo "Actualización exitosa";
-              header("location: ../FrontEnd/Home.html");
+              header("location: ../FrontEnd/Home.php");
           } else {
               echo "Error al actualizar: " . $stmt_insert->error;
           }

@@ -33,7 +33,7 @@ if ($stmt->execute()) {
 
 // Cierra la consulta y la conexión si es necesario
 
-
+var_dump ("Numero de ID:");
 var_dump ($idUsuarioActivo);
 
 
@@ -59,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Procesar el formulario de guardar nombre, tipo, descripción y color
                     $nombrePrenda = $_POST['nombre_prenda'];
                     $descripcion = $_POST['descripcion'];
-                    $idUsuarioActivo = $_SESSION['ID'];
 
                     if (strlen($nombrePrenda) <= 100 && strlen($descripcion) <= 200) {
                         // Insertar los datos en la base de datos

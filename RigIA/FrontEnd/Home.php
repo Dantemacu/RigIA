@@ -1,3 +1,33 @@
+<?php
+require ("DbConfiguracion.php");
+
+session_start();
+
+$nombreUsuario = $_SESSION['UsuarioActivo'];
+
+
+$sql = "SELECT ID FROM InicioSesion WHERE Mail = ?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $nombreUsuario);
+
+if ($stmt->execute()) {
+  $result = $stmt->get_result();
+  if ($result->num_rows > 0) {
+      $fila = $result->fetch_assoc();
+      $idUsuarioActivo = $fila['ID'];
+      // Ahora $idUsuarioActivo contiene el ID correspondiente al nombre de usuario
+  } else {
+      // El usuario no fue encontrado en la base de datos, maneja esto apropiadamente
+  }
+} else {
+  // Error en la ejecución de la consulta, maneja esto apropiadamente
+}
+
+var_dump ($_SESSION['UsuarioActivo']);
+var_dump ($idUsuarioActivo);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,9 +77,15 @@
     </div>
   </section>
 
+
+
+  <!--Cuadrados de imagen-->
   <div class="pie">
-    <div class="item">
-      <!-- Agrega un elemento img para mostrar la imagen recién subida -->
+    <?php
+    
+    
+    ?>
+    <!-- <div class="item">
       <img id="imagenRecienSubida" src="" alt="Imagen recién subida">
       <a class="open-drawer">
         <p class="punto-open">...</p>
@@ -63,18 +99,20 @@
       </a>
     </div>
     <div class="item">
-  <img src="../Images/Cuadrado.png" alt="TuOutfit">
-  <a class="open-drawer">
-    <p class="punto-open">...</p>
-  </a>
-</div>
-<div class="item">
-  <img src="../Images/Cuadrado.png" alt="TuOutfit">
-  <a class="open-drawer">
-    <p class="punto-open">...</p>
-  </a>
-</div>
+      <img src="../Images/Cuadrado.png" alt="TuOutfit">
+      <a class="open-drawer">
+        <p class="punto-open">...</p>
+      </a>
+    </div>
+    <div class="item">
+      <img src="../Images/Cuadrado.png" alt="TuOutfit">
+      <a class="open-drawer">
+        <p class="punto-open">...</p>
+      </a>
+    </div> -->
   </div>
+
+
 
   <div class="drawer">
     <div class="barrita-drawer">
@@ -91,10 +129,4 @@
   <div class="drawer-background" id="drawer-background"></div>
 </body>
 </html>
-<!-- Después de cargar la página o en el lugar adecuado -->
-<?php
-if (isset($_SESSION['urlImagenRecienSubida'])) {
-    $urlImagenRecienSubida = $_SESSION['urlImagenRecienSubida'];
-    echo '<img src="' . $urlImagenRecienSubida . '" alt="Imagen recién subida">';
-}
-?>
+

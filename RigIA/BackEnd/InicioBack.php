@@ -17,12 +17,13 @@ if ($_POST['form_type'] === "login") {
     $stmt_sql->bind_param("ss", $Mail2, $Contrasenia2);
     $stmt_sql->execute();
     $stmt_sql->store_result();
+
                 
     if ($stmt_sql->num_rows > 0) {
         
         $UsuarioActivo= $_POST['Mail2'];
         $_SESSION['UsuarioActivo']=$UsuarioActivo;
-        var_dump ($_SESSION['UsuarioActivo']);
+        //var_dump ($_SESSION['UsuarioActivo']);
         echo "Inicio de sesión exitoso.";
         header("location: ../FrontEnd/Home.php");
     } else {

@@ -19,8 +19,11 @@ if ($_POST['form_type'] === "login") {
     $stmt_sql->store_result();
                 
     if ($stmt_sql->num_rows > 0) {
+        
+        $UsuarioActivo= $_POST['Mail2'];
+        $_SESSION['UsuarioActivo']=$UsuarioActivo;
+        var_dump ($_SESSION['UsuarioActivo']);
         echo "Inicio de sesión exitoso.";
-        $_SESSION['SESION'] = $Nombre2; // Almacena el nombre de usuario en una variable de sesión
         header("location: ../FrontEnd/Home.php");
     } else {
         echo "Credenciales incorrectas. No se puede iniciar sesión.";

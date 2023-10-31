@@ -3,6 +3,40 @@ require("DbConfiguracion.php");
 
 session_start();
 
+ 
+ 
+var_dump ($_SESSION['UsuarioActivo']);
+
+
+
+
+// Obtener el nombre de usuario desde la sesión
+$nombreUsuario = $_SESSION['UsuarioActivo'];
+
+// Realizar la consulta para obtener el ID correspondiente al nombre de usuario
+$sql = "SELECT ID FROM InicioSesion WHERE Mail = ?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $nombreUsuario);
+
+if ($stmt->execute()) {
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $fila = $result->fetch_assoc();
+        $idUsuarioActivo = $fila['ID'];
+        // Ahora $idUsuarioActivo contiene el ID correspondiente al nombre de usuario
+    } else {
+        // El usuario no fue encontrado en la base de datos, maneja esto apropiadamente
+    }
+} else {
+    // Error en la ejecución de la consulta, maneja esto apropiadamente
+}
+
+// Cierra la consulta y la conexión si es necesario
+
+
+var_dump ($idUsuarioActivo);
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['guardar'])) {

@@ -99,3 +99,41 @@ li {
 .barra{
     padding-right: 15px;
 }
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+main {
+    display: flex;
+    /* flex-direction: column; Cambiar la dirección de la columna para apilar elementos verticalmente */
+}
+
+.filters-container {
+    display: flex; /* Coloca los elementos en línea horizontal */
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos en el contenedor */
+    background-color: white;
+    padding: 10px;
+    border-bottom: 2px solid rgb(71, 61, 61);
+}
+
+/* Estilo para los botones dentro del contenedor de filtros */
+.filters-container a {
+    text-decoration: none;
+    color: rgb(71, 61, 61);
+    font-weight: bold; /* Añade negritas u otros estilos de fuente según lo necesites */
+}
+
+/* Estilo para los íconos dentro del contenedor de filtros */
+.filters-container i {
+    margin-left: 5px; /* Añade espacio entre el texto y el ícono */
+}
+
+/* Estilo para el botón "Guardar" */
+.btn-guardar {
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    margin: 0 auto; /* Centra el botón horizontalmente en el pie de página */
+    margin-top: 20px; /* Espacio entre el contenedor de filtros y el botón */
+}

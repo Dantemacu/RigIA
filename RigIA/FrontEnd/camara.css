@@ -77,3 +77,11 @@ element.style {
   font-family: "Lucida Grande", "Arial", sans-serif;
   width: 100vw;
 }
+
+.fileters-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+

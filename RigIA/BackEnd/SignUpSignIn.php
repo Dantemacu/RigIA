@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,6 +83,7 @@
             Submit.innerHTML = "Registrarse";
             //authForm.setAttribute("action", "signup-action.php"); // Cambiar la acción del formulario para el registro
             nameInput.setAttribute("name", "Nombre"); // Restaurar el atributo name del input de nombre
+            mailInput.setAttribute("name", "Mail"); 
             authForm.setAttribute("action", "Registro.php"); 
             passwordInput.setAttribute("name", "Contrasenia"); // Restaurar el atributo name del input de contraseña
             document.getElementById("form_type").value = "register";

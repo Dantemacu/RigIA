@@ -15,12 +15,11 @@ if ($stmt->execute()) {
   if ($result->num_rows > 0) {
       $fila = $result->fetch_assoc();
       $idUsuarioActivo = $fila['ID'];
-      // Ahora $idUsuarioActivo contiene el ID correspondiente al nombre de usuario
-  } else {
-      // El usuario no fue encontrado en la base de datos, maneja esto apropiadamente
-  }
-} else {
-  // Error en la ejecución de la consulta, maneja esto apropiadamente
+    } 
+    else { 
+    }
+  } 
+  else {
 }
 
 var_dump ($_SESSION['UsuarioActivo']);
@@ -46,7 +45,7 @@ var_dump ($idUsuarioActivo);
   <header>
     <div class="logo">
       <img src="../Images/Logo.png" alt="logo">
-      <a href="Home.html" class="title-logo">Rig<span>IA</span></a>
+      <a href="Home.php" class="title-logo">Rig<span>IA</span></a>
     </div>
 
     <div class="barra">
@@ -56,7 +55,7 @@ var_dump ($idUsuarioActivo);
     <nav class="barra-options">
       <i id="barra-close" class="fa-solid fa-xmark"></i>
       <ul class="conf">
-        <li> <i class="fa-solid fa-user"></i> <a href="Home.html">Perfil</a></li>
+        <li> <i class="fa-solid fa-user"></i> <a href="Home.php">Perfil</a></li>
         <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
         <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
         <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
@@ -79,39 +78,38 @@ var_dump ($idUsuarioActivo);
 
 
 
-  <!--Cuadrados de imagen-->
-  <div class="pie">
+<!-- Cuadrados de imagen -->
+<!--Cuadrados de imagen-->
+<div class="pie">
     <?php
-    
-    
-    ?>
-    <!-- <div class="item">
-      <img id="imagenRecienSubida" src="" alt="Imagen recién subida">
-      <a class="open-drawer">
-        <p class="punto-open">...</p>
-      </a>
-    </div>
-    
-    <div class="item">
-      <img src="../Images/Cuadrado.png" alt="TuOutfit">
-      <a class="open-drawer">
-        <p class="punto-open">...</p>
-      </a>
-    </div>
-    <div class="item">
-      <img src="../Images/Cuadrado.png" alt="TuOutfit">
-      <a class="open-drawer">
-        <p class="punto-open">...</p>
-      </a>
-    </div>
-    <div class="item">
-      <img src="../Images/Cuadrado.png" alt="TuOutfit">
-      <a class="open-drawer">
-        <p class="punto-open">...</p>
-      </a>
-    </div> -->
-  </div>
+    // Consulta para recuperar las imágenes del usuario
+    $sql_imagenes = "SELECT id_imagenes, nombre_archivo FROM imagenes WHERE id_usuario = ?";
+    $stmt_imagenes = $mysqli->prepare($sql_imagenes);
+    $stmt_imagenes->bind_param("i", $idUsuarioActivo);
+    $stmt_imagenes->execute();
+    $result_imagenes = $stmt_imagenes->get_result();
 
+    if ($result_imagenes->num_rows > 0) {
+        while ($row_imagen = $result_imagenes->fetch_assoc()) {
+            $imagenID = $row_imagen['id_imagenes'];
+            $nombreArchivo = $row_imagen['nombre_archivo'];
+            $imagenURL = "../ImagenesPrendas/" . $nombreArchivo; // Ruta completa a la imagen
+
+            // Muestra la imagen y el botón de eliminación
+            echo '<div class="item">';
+            echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
+            echo '<a class="open-drawer">';
+            echo '<p class="punto-open">...</p>';
+            echo '</a>';
+            echo '<a class="eliminar-imagen" data-imagen-id="' . $imagenID . '">Eliminar</a>';
+            echo '</div>';
+        }
+    } else {
+        // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
+        echo 'No has subido ninguna prenda aún.';
+    }
+    ?>
+</div>
 
 
   <div class="drawer">

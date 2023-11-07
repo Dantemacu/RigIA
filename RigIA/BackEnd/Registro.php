@@ -1,12 +1,16 @@
 <?php
 require 'DbConfiguracion.php';
+session_start();
 
-session_start(); // Inicializa la sesión
+var_dump($_SESSION['UsuarioActivo']);
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nombre = $_POST["Nombre"];
-    $mail = $_POST["Mail"];
     $contrasenia = $_POST["Contrasenia"];
+    $mail = $_POST['Mail'];
 
     // Verifica si el nombre ya está en uso
     $query_check_duplicate = "SELECT Nombre FROM InicioSesion WHERE Nombre = ?";
@@ -35,8 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             if ($stmt_insert->execute()) {
                 echo "Actualización exitosa";
-                $_SESSION['SESION'] = $nombre; // Almacena el nombre de usuario en una variable de sesión
+                $UsuarioActivo= $_POST['Mail'];
+                $_SESSION['UsuarioActivo']=$UsuarioActivo;
                 header("location: ../FrontEnd/Home.php");
+                
             } else {
                 echo "Error al actualizar: " . $stmt_insert->error;
             }

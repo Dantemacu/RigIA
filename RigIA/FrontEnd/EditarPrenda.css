@@ -133,7 +133,11 @@ main {
 
 /* Estilo para el botón "Guardar" */
 .btn-guardar {
-    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    display: block;
     margin: 0 auto; /* Centra el botón horizontalmente en el pie de página */
-    margin-top: 20px; /* Espacio entre el contenedor de filtros y el botón */
+    margin-top: 70px; /* Espacio entre el contenedor de filtros y el botón */
+}
+
+footer{
+   
 }

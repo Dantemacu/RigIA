@@ -1,4 +1,3 @@
-(() => {
   // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
@@ -106,6 +105,7 @@
         startbutton.style.display = "block";
         clearphoto();
         ev.preventDefault();
+        reemplazarImagen();
       },
       false
     );
@@ -143,12 +143,34 @@
 
       var photoName = 'captura_' + new Date().getTime() + '.png'; 
       console.log(photoName);
+
     } else {
       clearphoto();
     }
   }
 
+  function reemplazarImagen(){
+    var image = document.getElementById("myImage");
+    image.src = photoName;
+
+    $sal='';
+    $.each(function(){
+      $sal+="<main>";
+      $sal+="<div id='imagenes'>";
+      $sal+="<img src="+image.src+" id='myImage' alt=''>";
+      $sal+="</div>";
+      $sal+="<div class='filters-container'>";
+      $sal+="<a id='prendas-filters'>Prendas<i class='fa-solid+ +fa-angle-down'></i></a>";
+      $sal+="<a id='etiquetas-filters'>Etiquetas<i class='fa-solid+ +fa-angle-down'></i></a>";
+      $sal+="</div>";
+      $sal+="<button class='btn-guardar' type='button' onclick='alert('Prenda editada con éxito')'>Guardar</button>";
+      $sal+="</main>"
+      
+    });
+    $("#imagenes").html($sal);
+  }
+
+
   // Set up our event listener to run the startup process
   // once loading is complete.
   window.addEventListener("load", startup, false);
-})();

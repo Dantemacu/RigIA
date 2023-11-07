@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Configuracion.css">
     <script src="https://kit.fontawesome.com/a6f001e2da.js" crossorigin="anonymous"></script>
+    <script src="EditarPrenda.js" type="text/javascript"></script>
     <title>Editar Prenda</title>
 </head>
 <body>
@@ -34,19 +35,15 @@
     </header>
     
     <main>
-        <img src="../ImagenesPrendas/WIN_20231023_11_45_23_Pro.jpg" alt="">
-        <div class="filters-container">
-            <div class="prendas">
-                <a href="#" id="prendas-filters">Prendas<i class="fa-solid fa-angle-down"></i></a>
-            </div>
-            <div class="etiquetas">
-                <a href="#" id="etiquetas-filters">Etiquetas<i class="fa-solid fa-angle-down"></i></a>
-            </div>
+        <div id="imagenes">
+            <img src="" id="myImage" alt="">
         </div>
-        <footer>
+        <div class="filters-container">
+            <a href="#" id="prendas-filters">Prendas<i class="fa-solid fa-angle-down"></i></a>
+            <a href="#" id="etiquetas-filters">Etiquetas<i class="fa-solid fa-angle-down"></i></a>
+        </div>
             <!-- Botón con el tipo confirm -->
             <button class="btn-guardar" type="button" onclick="alert('Prenda editada con éxito')">Guardar</button>
-        </footer>
     </main>
     
 </body>

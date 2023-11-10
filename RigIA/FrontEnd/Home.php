@@ -3,9 +3,8 @@ require ("DbConfiguracion.php");
 
 session_start();
 
+// RECUPERAR EL ID DEL USUARIO ACTIVO
 $nombreUsuario = $_SESSION['UsuarioActivo'];
-
-
 $sql = "SELECT ID FROM InicioSesion WHERE Mail = ?";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $nombreUsuario);
@@ -24,7 +23,6 @@ if ($stmt->execute()) {
 
 var_dump ($_SESSION['UsuarioActivo']);
 var_dump ($idUsuarioActivo);
-
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +45,7 @@ var_dump ($idUsuarioActivo);
       <img src="../Images/Logo.png" alt="logo">
       <a href="Home.php" class="title-logo">Rig<span>IA</span></a>
     </div>
-
+    
     <div class="barra">
       <a> <i id="barra-opn" class="fa-solid fa-bars"></i> </a>
     </div>
@@ -61,7 +59,6 @@ var_dump ($idUsuarioActivo);
         <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
         <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
       </ul>
-      
     </nav>
   </header>
 
@@ -75,12 +72,12 @@ var_dump ($idUsuarioActivo);
       <p class="Outfits">Tus Outfits</p>
     </div>
   </section>
+</body>
 
 
-
-<!-- Cuadrados de imagen -->
 <!--Cuadrados de imagen-->
-<div class="pie">
+<body>
+  <div class="pie">
     <?php
     // Consulta para recuperar las imágenes del usuario
     $sql_imagenes = "SELECT id_imagenes, nombre_archivo FROM imagenes WHERE id_usuario = ?";
@@ -88,43 +85,41 @@ var_dump ($idUsuarioActivo);
     $stmt_imagenes->bind_param("i", $idUsuarioActivo);
     $stmt_imagenes->execute();
     $result_imagenes = $stmt_imagenes->get_result();
-
+    
     if ($result_imagenes->num_rows > 0) {
-        while ($row_imagen = $result_imagenes->fetch_assoc()) {
-            $imagenID = $row_imagen['id_imagenes'];
-            $nombreArchivo = $row_imagen['nombre_archivo'];
-            $imagenURL = "../ImagenesPrendas/" . $nombreArchivo; // Ruta completa a la imagen
-
-            // Muestra la imagen y el botón de eliminación
-            echo '<div class="item">';
-            echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
-            echo '<a class="open-drawer">';
-            echo '<p class="punto-open">...</p>';
-            echo '</a>';
-            echo '<a class="eliminar-imagen" data-imagen-id="' . $imagenID . '">Eliminar</a>';
-            echo '</div>';
-        }
+      while ($row_imagen = $result_imagenes->fetch_assoc()) {
+          $imagenID = $row_imagen['id_imagenes'];
+          $nombreArchivo = $row_imagen['nombre_archivo'];
+          $imagenURL = "../ImagenesPrendas/" . $nombreArchivo; // Ruta completa a la imagen
+  
+          // Muestra la imagen y el botón de eliminación
+          echo '<div class="item">';
+          echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
+          echo '<a class="open-drawer">';
+          echo '<p class="punto-open">...</p>';
+          echo '</a>';
+          echo '</div>';
+      }
     } else {
-        // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
-        echo 'No has subido ninguna prenda aún.';
+      // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
+      echo 'No has subido ninguna prenda aún.';
     }
     ?>
-</div>
-
-
-  <div class="drawer">
-    <div class="barrita-drawer">
-      <p id="close-drawer">--------------------------</p>
-    </div>
-    <ul>
-      <a href="" id="addFavorites">Añadir a favoritos</a> 
-      <a href="" id="addTag">Añadir etiqueta</a>
-      <a href="" id="editTag">Editar etiqueta</a>
-      <a href="" id="editName">Editar Nombre</a>
-    </ul>
   </div>
+  
+  <div class="drawer">
+      <div class="barrita-drawer">
+        <p id="close-drawer"></p>
+      </div>
+      <ul>
+        <a href="" id="addFavorites">Añadir a favoritos</a> 
+        <a href="" id="addTag">Añadir etiqueta</a>
+        <a href="" id="editTag">Editar etiqueta</a>
+        <a href="" id="editName">Editar Nombre</a>
+      </ul>
+    </div>
 
-  <div class="drawer-background" id="drawer-background"></div>
+    <div class="drawer-background" id="drawer-background"></div>
 </body>
-</html>
+  </html>
 

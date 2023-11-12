@@ -60,7 +60,7 @@ main {
 }
 
 img {
-    
+    padding-top: 15px;
 }
 
 .filters-container {
@@ -102,6 +102,58 @@ img {
 footer{
    
 }
+
+/* Animacion de las columnas */
+
+.filter-column {
+    display: none;
+    position: fixed;
+    top: 0px; 
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    z-index: 100;
+}
+
+.filter-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+#prendas-column{
+    left: 0px;
+    width: 160px;
+    height: 100vh;
+}
+
+#etiquetas-column{
+    right: 0px;
+    width: 160px;
+    height: 100vh;
+}
+
+li{
+    display: flex;
+    justify-content: center;
+}
+
+
+.prendas-column-background{
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+    width: 160px;
+}
+
+.etiquetas-column-background{
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    width: 160px;
+}
+
 /* Animacion */
 
 nav {

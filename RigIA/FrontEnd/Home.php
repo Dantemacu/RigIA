@@ -96,13 +96,17 @@ var_dump ($idUsuarioActivo);
           echo '<div class="item">';
           echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
           echo '<a class="open-drawer">';
-          echo '<p class="punto-open">...</p>';
+          echo '<a  class="punto-open">... </a>';
+          //href="TresPuntosHome.php"
           echo '</a>';
+          echo '<a href="eliminar_imagen.php?id=' . $imagenID . '">Eliminar</a>'; // Agrega el enlace de eliminación
           echo '</div>';
+
       }
     } else {
       // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
       echo 'No has subido ninguna prenda aún.';
+      echo '<a href="SubirFoto2.php"><img src="../Images/CuadradoImagen.png" alt="Subir Imagen"></a>';
     }
     ?>
   </div>

@@ -1,4 +1,4 @@
-<?php 
+    <?php 
 
 $_ENV = parse_ini_file('.env');
 $mysqli = mysqli_init();

@@ -3,12 +3,7 @@ require("DbConfiguracion.php");
 
 session_start();
 
- 
- 
 var_dump ($_SESSION['UsuarioActivo']);
-
-
-
 
 // Obtener el nombre de usuario desde la sesión
 $nombreUsuario = $_SESSION['UsuarioActivo'];
@@ -31,22 +26,16 @@ if ($stmt->execute()) {
     // Error en la ejecución de la consulta, maneja esto apropiadamente
 }
 
-// Cierra la consulta y la conexión si es necesario
-
 var_dump ("Numero de ID:");
 var_dump ($idUsuarioActivo);
-
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['guardar'])) {
         if (isset($_FILES['nombreArchivo']) && isset($_FILES['nombreArchivo']['name'])) {
-            // Procesar la subida de imágenes
             $archivo = $_FILES['nombreArchivo']['name'];
             $tipo = $_FILES['nombreArchivo']['type'];
             $tamano = $_FILES['nombreArchivo']['size'];
             $temp = $_FILES['nombreArchivo']['tmp_name'];
-
 
             $carpetaDestino = 'C:/xampp/htdocs/RigIA/RigIA/ImagenesPrendas/';
             $rutaArchivo = $carpetaDestino . $archivo;
@@ -56,20 +45,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 - Se permiten archivos .gif, .jpg, .png, y deben ser de 2 MB como máximo.</b></div>';
             } else {
                 if (move_uploaded_file($temp, $rutaArchivo)) {
-                    // Procesar el formulario de guardar nombre, tipo, descripción y color
                     $nombrePrenda = $_POST['nombre_prenda'];
                     $descripcion = $_POST['descripcion'];
                     $TipoPrenda = $_POST['tipo'];
                     $Etiqueta = $_POST['Etiqueta'];
 
                     if (strlen($nombrePrenda) <= 100 && strlen($descripcion) <= 200) {
-                        // Insertar los datos en la base de datos
                         $sql = "INSERT INTO imagenes (nombre_prenda, nombre_archivo, tipo_archivo, id_usuario, tipo_prenda, etiqueta) VALUES (?, ?, ?, ?, ?, ?)";
                         $stmt = $mysqli->prepare($sql);
                         $stmt->bind_param("sssiss", $nombrePrenda, $archivo, $tipo, $idUsuarioActivo, $TipoPrenda, $Etiqueta);
 
                         if ($stmt->execute()) {
                             echo "Los datos se han insertado correctamente en la base de datos.";
+                            echo '<script>
+                                    // Actualiza la imagen después de la subida
+                                    document.getElementById("imagenSubida").src = "../ImagenesPrendas/' . $archivo . '";
+                                </script>';
                         } else {
                             echo "Error al insertar los datos en la base de datos: " . $mysqli->error;
                         }
@@ -95,36 +86,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h1>Mi Armario</h1>
     <form action="" method="POST" enctype="multipart/form-data">
         Añadir imagen: <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
-        echo $archivo<br>
-
+        <!-- Muestra la imagen subida -->
+        <img id="imagenSubida" src="" alt="Imagen Subida"><br>
         
-
         <label for="nombre_prenda">Nombre de la prenda:</label>
         <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
 
+        <label for="lang">Tipo de prenda</label>
+        <select name="tipo" id="tipo" required>
+            <option value="Remera">Remera</option>
+            <option value="Campera">Campera</option>
+            <option value="Pantalon">Pantalon</option>
+            <option value="Calzado">Calzado</option>
+            <option value="MangaLarga">Manga Larga</option>
+            <option value="Gorro">Gorro</option>
+            <option value="Vestido">Vestido</option>
+            <option value="Camisa">Camisa</option>
+            <option value="Short">Short</option>
+            <option value="Pollera">Pollera</option>
+        </select>
 
-        <!--<label for="tipo">Tipo de prenda:</label>
-        <input type="" name="tipo" id="tipo" maxlength="100" required><br><br>-->
-      <label for="lang">Tipo de prenda</label>
-      <select name="tipo" id="tipo" require>
-        <option value="Remera">Remera</option>
-        <option value="Campera">Campera</option>
-        <option value="Pantalon">Pantalon</option>
-        <option value="Calzado">Calzado</option>
-        <option value="MangaLarga">Manga Larga</option>
-        <option value="Gorro">Gorro</option>
-        <option value="Vestido">Vestido</option>
-        <option value="Camisa">Camisa</option>
-        <option value="Short">Short</option>
-        <option value="Pollera">Pollera</option>
-      </select>
-
-      <label for="lang">Etiqueta</label>
-      <select name="Etiqueta" id="Etiqueta" require>
-      <option value="Formal">Formal</option>
-      <option value="Informal">Informal</option>
-      <option value="Casual">Casual</option>
-      </select>
+        <label for="lang">Etiqueta</label>
+        <select name="Etiqueta" id="Etiqueta" required>
+            <option value="Formal">Formal</option>
+            <option value="Informal">Informal</option>
+            <option value="Casual">Casual</option>
+        </select>
 
         <label for="descripcion">Descripción:</label>
         <textarea name="descripcion" id="descripcion" maxlength="200" required></textarea><br><br>
@@ -132,9 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="color">Color:</label>
         <input type="text" name="color" id="color" maxlength="100"><br><br>
 
-        <!-- Otros campos de entrada -->
-
-        <!-- Agrega el botón de envío -->
         <input type="submit" name="guardar" value="Enviar">
     </form>
 </body>

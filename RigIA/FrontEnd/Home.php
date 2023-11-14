@@ -9,6 +9,7 @@ $sql = "SELECT ID FROM InicioSesion WHERE Mail = ?";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $nombreUsuario);
 
+ 
 if ($stmt->execute()) {
   $result = $stmt->get_result();
   if ($result->num_rows > 0) {
@@ -65,7 +66,7 @@ var_dump ($idUsuarioActivo);
   <section class="hero">
     <div class="container">
       <img src="../Images/FotoPerfil.png" alt="Foto de perfil">
-      <h4>Nombre</h4>
+      <h4><?php echo $nombreUsuario ?></h4>
       <a href="EditarPerfil.html">
         <p class="edit-perfil">Editar Perfil</p>
       </a>

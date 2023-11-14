@@ -207,3 +207,7 @@ p{
     z-index: 9; 
     display: none;
   }
+
+#galeria{
+    display: none;
+}

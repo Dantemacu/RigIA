@@ -59,12 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Procesar el formulario de guardar nombre, tipo, descripción y color
                     $nombrePrenda = $_POST['nombre_prenda'];
                     $descripcion = $_POST['descripcion'];
+                    $TipoPrenda = $_POST['tipo'];
+                    $Etiqueta = $_POST['Etiqueta'];
 
                     if (strlen($nombrePrenda) <= 100 && strlen($descripcion) <= 200) {
                         // Insertar los datos en la base de datos
-                        $sql = "INSERT INTO imagenes (nombre_prenda, descripcion, nombre_archivo, tipo_archivo, id_usuario) VALUES (?, ?, ?, ?, ?)";
+                        $sql = "INSERT INTO imagenes (nombre_prenda, nombre_archivo, tipo_archivo, id_usuario, tipo_prenda, etiqueta) VALUES (?, ?, ?, ?, ?, ?)";
                         $stmt = $mysqli->prepare($sql);
-                        $stmt->bind_param("ssssi", $nombrePrenda, $descripcion, $archivo, $tipo, $idUsuarioActivo);
+                        $stmt->bind_param("sssiss", $nombrePrenda, $archivo, $tipo, $idUsuarioActivo, $TipoPrenda, $Etiqueta);
 
                         if ($stmt->execute()) {
                             echo "Los datos se han insertado correctamente en la base de datos.";
@@ -92,13 +94,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <h1>Mi Armario</h1>
     <form action="" method="POST" enctype="multipart/form-data">
-        Añadir imagen: <input name="nombreArchivo" id="nombreArchivo" type="file"/><br><br>
+        Añadir imagen: <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
+        echo $archivo<br>
+
+        
 
         <label for="nombre_prenda">Nombre de la prenda:</label>
         <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
 
-        <label for="tipo">Tipo de prenda:</label>
-        <input type="text" name="tipo" id="tipo" maxlength="100" required><br><br>
+
+        <!--<label for="tipo">Tipo de prenda:</label>
+        <input type="" name="tipo" id="tipo" maxlength="100" required><br><br>-->
+      <label for="lang">Tipo de prenda</label>
+      <select name="tipo" id="tipo" require>
+        <option value="Remera">Remera</option>
+        <option value="Campera">Campera</option>
+        <option value="Pantalon">Pantalon</option>
+        <option value="Calzado">Calzado</option>
+        <option value="MangaLarga">Manga Larga</option>
+        <option value="Gorro">Gorro</option>
+        <option value="Vestido">Vestido</option>
+        <option value="Camisa">Camisa</option>
+        <option value="Short">Short</option>
+        <option value="Pollera">Pollera</option>
+      </select>
+
+      <label for="lang">Etiqueta</label>
+      <select name="Etiqueta" id="Etiqueta" require>
+      <option value="Formal">Formal</option>
+      <option value="Informal">Informal</option>
+      <option value="Casual">Casual</option>
+      </select>
 
         <label for="descripcion">Descripción:</label>
         <textarea name="descripcion" id="descripcion" maxlength="200" required></textarea><br><br>

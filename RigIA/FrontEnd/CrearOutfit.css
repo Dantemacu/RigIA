@@ -51,6 +51,46 @@ nav i{
     display: block;
 }
 
+h2{
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    font-size: 1em;
+    margin-left: 15px;
+    padding-bottom: 140px;
+}
+
+main a {
+    text-decoration: underline;
+}
+
+i{
+    text-decoration: underline;
+}
+
+button{
+    border: none;
+    border-radius: 15px;
+    background: #3DA7C9;
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    width: 135px;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 
 
 

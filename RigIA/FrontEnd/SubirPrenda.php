@@ -58,12 +58,18 @@
     
             <form id="subirFotoForm" action="SubirFoto2.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="form_type" value="galeria">
-                <!-- Botón de galería con redirección -->
-                <button id="galeriaBtn" type="button" onclick="window.location.href='SubirFoto2.php'">
+                <!-- Botón de galería con redirección 
+            onclick="window.location.href='SubirFoto2.php' -->
+                <label for="galeria"></label>
+            <button id="galeriaBtn" type="button" onclick="window.location.href='SubirFoto2.php'">
                 <img src="../Images/Group 39Galeria.png" alt="">
+                <input type="file" id="galeria"/>
+
+ 
             </button>
             <p>Galeria</p>
         </form>
+
     </div>
 </div>
 

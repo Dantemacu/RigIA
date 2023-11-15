@@ -6,7 +6,7 @@ function cambiarEtiqueta(nuevaEtiqueta) {
 
 }
 
-// Quiero que se vuelva a poder abrir etiqueta-dropdown
+// Se vuelva a poder abrir etiqueta-dropdown
  function abrirEtiquetaDropdown() {
     var etiquetaoptions = document.getElementById('etiqueta-options');
     etiquetaoptions.style.display = 'block';

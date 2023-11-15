@@ -10,6 +10,7 @@
 </head>
 <body>
     <script src="Home.js"></script>
+    <script src="CrearOutfit.js"></script>
 
     <header>
         <div class="logo">
@@ -18,7 +19,7 @@
         </div>
         
         <div class="barra">
-           <a href="#"> <i id="barra-opn" class="fa-solid fa-bars"></i> </a>
+            <a href="#"> <i id="barra-opn" class="fa-solid fa-bars"></i> </a>
         </div>
 
         <nav class="barra-options">
@@ -39,8 +40,15 @@
 
         <h4>Seleccione una etiqueta</h4>
 
-        <a href="#"> Etiqueta <i class="fa-solid fa-angle-down"></i></a>
-        
+        <div  class="etiqueta-dropdown">
+            <a id="etiqueta-link" href="#" onclick="abrirEtiquetaDropdown()"> Etiqueta <i class="fa-solid fa-angle-down"></i></a>
+            <ul id="etiqueta-options" class="etiqueta-options">
+                <li><a href="#" onclick="cambiarEtiqueta('Formal')">Formal</a></li>
+                <li><a href="#" onclick="cambiarEtiqueta('Informal')">Informal</a></li>
+                <li><a href="#" onclick="cambiarEtiqueta('Casual')">Casual</a></li>
+            </ul>
+        </div>
+
     </main>
 
     <footer>

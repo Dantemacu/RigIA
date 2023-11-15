@@ -88,25 +88,17 @@ main i{
     text-decoration: none;
 }
 
-ul{
+ul {
     list-style: none;
     padding: 5px;
     width: 130px;
     margin: 0;
 }
 
-li{
-    display: flex;
-    text-align: center;
-}
-
 .etiqueta-options a {
     text-decoration: none; 
     color: #333; 
 }
-
-
-
 
 button{
     border: none;
@@ -143,12 +135,17 @@ nav {
     transition: width 0.3s ease-in-out;
     }
 
-li {
+.conf li {
     text-align: right;
     padding: .3em;
     list-style: none;
 }
 
+ul .conf{
+    text-align: right;
+    align-items: right
+        ;
+}
 
 .barra-options {
     position: fixed;

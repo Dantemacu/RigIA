@@ -24,6 +24,7 @@ if ($stmt->execute()) {
 
 var_dump ($_SESSION['UsuarioActivo']);
 var_dump ($idUsuarioActivo);
+
 ?>
 
 <!DOCTYPE html>

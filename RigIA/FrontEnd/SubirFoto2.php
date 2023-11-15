@@ -45,21 +45,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 - Se permiten archivos .gif, .jpg, .png, y deben ser de 2 MB como máximo.</b></div>';
             } else {
                 if (move_uploaded_file($temp, $rutaArchivo)) {
-                    $nombrePrenda = $_POST['nombre_prenda'];
-                    $descripcion = $_POST['descripcion'];
-                    $TipoPrenda = $_POST['tipo'];
+                    /*$nombrePrenda = $_POST['nombre_prenda'];
+                    */$TipoPrenda = $_POST['tipo'];/*
                     $Etiqueta = $_POST['Etiqueta'];
 
-                    if (strlen($nombrePrenda) <= 100 && strlen($descripcion) <= 200) {
+                    if (strlen($nombrePrenda) <= 100 ) {
                         $sql = "INSERT INTO imagenes (nombre_prenda, nombre_archivo, tipo_archivo, id_usuario, tipo_prenda, etiqueta) VALUES (?, ?, ?, ?, ?, ?)";
                         $stmt = $mysqli->prepare($sql);
-                        $stmt->bind_param("sssiss", $nombrePrenda, $archivo, $tipo, $idUsuarioActivo, $TipoPrenda, $Etiqueta);
+                        $stmt->bind_param("sssiss", $nombrePrenda, $archivo, $tipo, $idUsuarioActivo, $TipoPrenda, $Etiqueta);*/
 
+                    if ($stmt->execute()) {
+                        $sql = "INSERT INTO imagenes (nombre_archivo, id_usuario, tipo_prenda, ) VALUES ( ?, ?, ?)";
+                        $stmt = $mysqli->prepare($sql);
+                        $stmt->bind_param("sis", $archivo, $idUsuarioActivo, $TipoPrenda,);
+
+                        
                         if ($stmt->execute()) {
                             echo "Los datos se han insertado correctamente en la base de datos.";
                             echo '<script>
-                                    // Actualiza la imagen después de la subida
-                                    document.getElementById("imagenSubida").src = "../ImagenesPrendas/' . $archivo . '";
+                                    // Crea un nuevo elemento de imagen
+                                    var nuevaImagen = document.createElement("img");
+                                    // Establece el atributo src con la ruta de la imagen subida
+                                    nuevaImagen.src = "../ImagenesPrendas/' . $archivo . '";
+                                    // Establece el atributo alt
+                                    nuevaImagen.alt = "Imagen Subida";
+                                    // Agrega la nueva imagen al final del formulario
+                                    document.getElementById("imagenSubida").appendChild(nuevaImagen);
                                 </script>';
                         } else {
                             echo "Error al insertar los datos en la base de datos: " . $mysqli->error;
@@ -76,6 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,9 +99,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form action="" method="POST" enctype="multipart/form-data">
         Añadir imagen: <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
         <!-- Muestra la imagen subida -->
-        <img id="imagenSubida" src="" alt="Imagen Subida"><br>
+        <div id="imagenSubida"></div>
         
-        <label for="nombre_prenda">Nombre de la prenda:</label>
+        <!--<label for="nombre_prenda">Nombre de la prenda:</label>
         <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
 
         <label for="lang">Tipo de prenda</label>
@@ -113,13 +125,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Casual">Casual</option>
         </select>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea name="descripcion" id="descripcion" maxlength="200" required></textarea><br><br>
 
         <label for="color">Color:</label>
         <input type="text" name="color" id="color" maxlength="100"><br><br>
 
-        <input type="submit" name="guardar" value="Enviar">
+        <input type="submit" name="guardar" value="Enviar">-->
     </form>
 </body>
 </html>
+
+nombre_prenda, color, Etiqueta, tipo

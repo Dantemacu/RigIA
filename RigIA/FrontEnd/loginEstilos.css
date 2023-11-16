@@ -8,7 +8,7 @@
 .container{
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(hsla(209, 83%, 37%, 0), rgba(0, 113, 241, 0.8)), url( Images/ArmarioSignIn.png);    
+    background-image: linear-gradient(hsla(209, 83%, 37%, 0), rgba(0, 113, 241, 0.8)), url( ../Images/ArmarioSignIn.png);    
     position: relative;
 }
 
@@ -23,7 +23,7 @@ button#Submit{
 
 
 .form-box{
-    width: 90%; /* establece el ancho del elemento */
+    width: 88%; /* establece el ancho del elemento */
     max-width: 450px; /* limita el ancho máximo del elemento */
     position: absolute; /* Establece la posicion del elemento con respecto a su padre mas cercano que tenga*/
     top: 50%; /* Establece la distancia entre el borde superior del elemento y la parte superior del contenedor  */
@@ -33,6 +33,7 @@ button#Submit{
     padding: 10px 20px 30px; /* */
     text-align: center;  /* alinea el texto y otros contenidos dentro del elemento al centro*/
     border-radius: 6px;
+    height: 400px;
 }
 
 .form-box h1{
@@ -65,9 +66,12 @@ button#Submit{
     overflow: hidden;
 }
 
+.input-field input{
+    background: #eaeaea;
+}
+
 input{
     width: 100%;
-    background: transparent;
     border: 0;
     outline: 0;
     padding: 18px 15px;
@@ -95,7 +99,7 @@ form p a{
 }
 .btn-field button {
     flex-basis: 48%;
-    color: #fff;
+    color:#3DA7C9;
     height: 40px;
     border-radius: 20px;
     border: 0;

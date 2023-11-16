@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tamano = $_FILES['nombreArchivo']['size'];
             $temp = $_FILES['nombreArchivo']['tmp_name'];
 
-            $carpetaDestino = 'C:/xampp/htdocs/RigIA/RigIA/ImagenesPrendas/';
+            $carpetaDestino = '../ImagenesPrendas/';
             $rutaArchivo = $carpetaDestino . $archivo;
 
             if (!((strpos($tipo, "gif") !== false || strpos($tipo, "jpeg") !== false || strpos($tipo, "jpg") !== false || strpos($tipo, "png") !== false) && ($tamano < 2000000))) {

@@ -79,19 +79,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Armario</title>
+    <link rel="stylesheet" href="SubirFoto2.css">
+    <script src="https://kit.fontawesome.com/a6f001e2da.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Mi Armario</h1>
+    <script src="Home.js"></script>
+        <header>
+        <div class="logo">
+            
+            <img src="../Images/Logo.png" alt="logo">
+            <a href="Home.html">Rig<span>IA</span></a>
+        </div>
+        
+        <div class="barra">
+           <a href="#"> <i id="barra-opn" class="fa-solid fa-bars"></i> </a>
+        </div>
+
+        <nav class="barra-options">
+            <i id="barra-close" class="fa-solid fa-xmark"></i>
+            <ul class="conf">
+                <li> <i class="fa-solid fa-user"></i> <a href="Home.html">Perfil</a></li>
+                <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
+                <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
+                <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
+                <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
     <form action="" method="POST" enctype="multipart/form-data">
-        Añadir imagen: <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
-        <!-- Muestra la imagen subida -->
-        <img id="imagenSubida" src="" alt="Imagen Subida"><br>
+
+        <div class="prenda-container">
+
+        <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
         
         <label for="nombre_prenda">Nombre de la prenda:</label>
         <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
 
-        <label for="lang">Tipo de prenda</label>
+        </div>
+
+        <div class="filters">
+
+        <label for="lang">Prenda</label>
         <select name="tipo" id="tipo" required>
             <option value="Remera">Remera</option>
             <option value="Campera">Campera</option>
@@ -112,11 +148,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Casual">Casual</option>
         </select>
 
-    
-
-
+        </div>
 
         <input type="submit" name="guardar" value="Enviar">
     </form>
+
+    </main>
 </body>
 </html>

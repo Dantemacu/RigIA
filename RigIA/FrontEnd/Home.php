@@ -101,7 +101,6 @@ var_dump ($idUsuarioActivo);
           echo '<a  class="punto-open">... </a>';
           //href="TresPuntosHome.php"
           echo '</a>';
-          echo '<a href="eliminar_imagen.php?id=' . $imagenID . '">Eliminar</a>'; // Agrega el enlace de eliminación
           echo '</div>';
 
       }
@@ -122,6 +121,9 @@ var_dump ($idUsuarioActivo);
         <a href="" id="addTag">Añadir etiqueta</a>
         <a href="" id="editTag">Editar etiqueta</a>
         <a href="" id="editName">Editar Nombre</a>
+        <?php
+          echo '<a href="eliminar_imagen.php?id=' . $imagenID . '">Eliminar</a>';
+      ?>
       </ul>
     </div>
 

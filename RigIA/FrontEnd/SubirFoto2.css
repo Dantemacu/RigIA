@@ -26,6 +26,7 @@ body{
 a{
     text-decoration: none;
     color: rgb(71, 61, 61);
+    
 }
 
 header{
@@ -51,73 +52,13 @@ nav i{
     display: block;
 }
 
-h2{
-    display: flex;
-    justify-content: center;
-}
-
 main{
     display: flex;
-    text-align: left;
     flex-direction: column;
-    font-size: 1em;
-    margin-left: 15px;
-    padding-bottom: 120px;
-}
-
-main a {
-    text-decoration: underline;
-}
-
-main i{
-    text-decoration: underline;
-}
-
-.etiqueta-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 95px;
-}
-
-.etiqueta-options {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
-    padding: 5px;
-    width: 130px;
-    margin: 0;
-}
-
-.etiqueta-options a {
-    text-decoration: none; 
-    color: #333; 
-}
-
-button{
-    border: none;
-    border-radius: 15px;
-    background: #3DA7C9;
-    color: white;
-    font-size: 20px;
-    padding: 5px;
-    width: 135px;
-}
-
-footer{
-    display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-
-
-
 
 
 
@@ -135,17 +76,12 @@ nav {
     transition: width 0.3s ease-in-out;
     }
 
-.conf li {
+li {
     text-align: right;
     padding: .3em;
     list-style: none;
 }
 
-ul .conf{
-    text-align: right;
-    align-items: right
-        ;
-}
 
 .barra-options {
     position: fixed;
@@ -159,7 +95,7 @@ ul .conf{
     padding: 1em;
     transition: right 0.3s ease-in-out;
     margin-left: 15px;    
-}z
+}
 
 
 .barra-options.open {
@@ -173,4 +109,14 @@ ul .conf{
 
 .barra{
     padding-right: 15px;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+img #imagensubida{
+    width: 100px;
+    height: 100px;
 }

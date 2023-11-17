@@ -59,7 +59,7 @@ function previewFile(file) {
 
 
 function fileValidate(fileType, fileSize) {
-  let isImage = imagesTypes.filter((type) => fileType.indexOf(image/$,{type}) !== -1);
+  let isImage = imagesTypes.filter((type) => fileType.indexOf(`image/${type}`) !== -1);
 
 
   if (isImage.length !== 0) {

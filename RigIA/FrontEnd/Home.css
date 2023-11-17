@@ -13,7 +13,6 @@ body {
 
 .title-logo {
     margin: 0 5px;
-    ;
 }
 
 .logo {
@@ -64,25 +63,20 @@ p {
 }
 
 p.edit-perfil{
-    width: 50%;
+    width: 60%;
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin: auto;
-    margin-top: 10px;
+    margin:auto
 }
 
-p.edit-perfil a{
-    display: inline-block;
-}
 
 h4 {
     font-weight: 800;
-    margin: 4px 0;
+    margin: 10px 0;
 }
 
 div.container {
-    padding-bottom: 5px;
     flex-direction: column;
 }
 
@@ -98,9 +92,8 @@ div.container {
 
 .Outfits {
     color: #3F3F3F;
-    text-decoration-line: underline;
-    margin-top: 4;
-
+    margin-top: 14px;
+    font-size: 1.1em;
 }
 
 .pie {
@@ -140,6 +133,11 @@ div.container {
 .conf {
     list-style: none;
 
+}
+
+.item img{
+    width:  50%;
+    height: 90%;
 }
 
 /* Animacion */

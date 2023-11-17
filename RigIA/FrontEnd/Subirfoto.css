@@ -1,0 +1,11 @@
+.icon.--Uploaded{
+    display: none;
+}
+
+#previewImage{
+    display: none;
+}
+
+#fileInput{
+    display: none;
+}

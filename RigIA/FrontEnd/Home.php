@@ -60,6 +60,8 @@ if ($stmt->execute()) {
         <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
         <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.php">Armario</a> </li>
         <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
+        <li> <i class="fa-regular fa-square-plus"></i><a href="CrearOutfit.html"> Crear Outfit</a></li>
+
       </ul>
     </nav>
   </header>
@@ -78,7 +80,7 @@ if ($stmt->execute()) {
 
 <div>
 <?php
-$sql_imagenes = "SELECT id FROM outfits WHERE id_usuario = ?";
+/*$sql_imagenes = "SELECT id FROM outfits WHERE id_usuario = ?";
 $stmt_imagenes = $mysqli->prepare($sql_imagenes);
 $stmt_imagenes->bind_param("i", $idUsuarioActivo);
 $stmt_imagenes->execute();
@@ -87,7 +89,7 @@ if ($result_imagenes->num_rows > 0) {
   echo "Aca esta tu prenda";
 }  else {
   echo "Ninguna prenda subida";
-}
+}*/ 
 ?>
 
 </div>

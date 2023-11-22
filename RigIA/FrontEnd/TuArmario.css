@@ -213,4 +213,10 @@ li {
     background-color: rgb(0, 0, 0, 0.01); 
     z-index: 9; 
     display: none;
-  }
+}
+
+.Prendas {
+    color: #3F3F3F;
+    margin-top: 14px;
+    font-size: 1.1em;
+}

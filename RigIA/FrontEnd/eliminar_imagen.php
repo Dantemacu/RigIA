@@ -12,7 +12,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     if ($stmt_eliminar->execute()) {
         // Eliminación exitosa, redirige a la página principal o muestra un mensaje
-        header("Location: Home.php");
+        header("Location: TuArmario.php");
         exit();
     } else {
         // Error al eliminar, muestra un mensaje de error

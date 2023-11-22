@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="logo">
             
             <img src="../Images/Logo.png" alt="logo">
-            <a href="Home.html">Rig<span>IA</span></a>
+            <a href="TuArmario.php">Rig<span>IA</span></a>
         </div>
         
         <div class="barra">

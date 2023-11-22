@@ -22,8 +22,8 @@ if ($stmt->execute()) {
   else {
 }
 
-var_dump ($_SESSION['UsuarioActivo']);
-var_dump ($idUsuarioActivo);
+//var_dump ($_SESSION['UsuarioActivo']);
+//var_dump ($idUsuarioActivo);
 
 ?>
 
@@ -58,7 +58,7 @@ var_dump ($idUsuarioActivo);
         <li> <i class="fa-solid fa-user"></i> <a href="Home.php">Perfil</a></li>
         <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
         <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
-        <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
+        <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.php">Armario</a> </li>
         <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
       </ul>
     </nav>
@@ -71,47 +71,28 @@ var_dump ($idUsuarioActivo);
       <a href="EditarPerfil.html">
         <p class="edit-perfil">Editar Perfil</p>
       </a>
-      <p class="Outfits">Tus Outfits</p>
+      <p class="Outfits">Tus Outfits:</p>
     </div>
   </section>
 </body>
 
+<div>
+<?php
+$sql_imagenes = "SELECT id FROM outfits WHERE id_usuario = ?";
+$stmt_imagenes = $mysqli->prepare($sql_imagenes);
+$stmt_imagenes->bind_param("i", $idUsuarioActivo);
+$stmt_imagenes->execute();
+$result_imagenes = $stmt_imagenes->get_result();
+if ($result_imagenes->num_rows > 0) {
+  echo "Aca esta tu prenda";
+}  else {
+  echo "Ninguna prenda subida";
+}
+?>
 
-<!--Cuadrados de imagen-->
-<body>
-  <div class="pie">
-    <?php
-    // Consulta para recuperar las imágenes del usuario
-    $sql_imagenes = "SELECT id_imagenes, nombre_archivo FROM imagenes WHERE id_usuario = ?";
-    $stmt_imagenes = $mysqli->prepare($sql_imagenes);
-    $stmt_imagenes->bind_param("i", $idUsuarioActivo);
-    $stmt_imagenes->execute();
-    $result_imagenes = $stmt_imagenes->get_result();
-    
-    if ($result_imagenes->num_rows > 0) {
-      while ($row_imagen = $result_imagenes->fetch_assoc()) {
-          $imagenID = $row_imagen['id_imagenes'];
-          $nombreArchivo = $row_imagen['nombre_archivo'];
-          $imagenURL = "../ImagenesPrendas/" . $nombreArchivo; // Ruta completa a la imagen
-  
-          // Muestra la imagen y el botón de eliminación
-          echo '<div class="item">';
-          echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
-          echo '<a class="open-drawer">';
-          echo '<a  class="punto-open">... </a>';
-          //href="TresPuntosHome.php"
-          echo '</a>';
-          echo '</div>';
+</div>
 
-      }
-    } else {
-      // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
-      echo 'No has subido ninguna prenda aún.';
-      echo '<a href="SubirFoto2.php"><img src="../Images/CuadradoImagen.png" alt="Subir Imagen"></a>';
-    }
-    ?>
-  </div>
-  
+<body>  
   <div class="drawer">
       <div class="barrita-drawer">
         <p id="close-drawer"></p>

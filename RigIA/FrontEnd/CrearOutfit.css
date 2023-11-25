@@ -36,7 +36,8 @@ header{
     background-color: white;
     text-decoration: none;
     padding: 10px;
-    border-bottom: 2px solid rgb(71, 61, 61) ;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.288);
+
 }
 
 header span{
@@ -55,6 +56,11 @@ h2{
     display: flex;
     justify-content: center;
 }
+
+
+
+
+
 
 main{
     display: flex;
@@ -138,10 +144,17 @@ li {
     list-style: none;
 }
 
-ul.conf{
+ul.conf { 
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    left: 56px;
+    width: 150px;
+}
 
+header li {
+    text-align: right;
 }
 
 .barra-options {
@@ -155,7 +168,7 @@ ul.conf{
     overflow-x: hidden;
     padding: 1em;
     transition: right 0.3s ease-in-out;
-    margin-left: 15px;    
+
 }
 
 

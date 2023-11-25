@@ -37,7 +37,6 @@ header{
     background-color: white;
     text-decoration: none;
     padding: 10px;
-    border-bottom: 2px solid rgb(71, 61, 61) ;
 }
 
 header span{
@@ -52,14 +51,88 @@ nav i{
     display: block;
 }
 
+
+
+
 main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 30px;
+    font-size: 15px;
 }
 
+input[type="file"] {
+    opacity: 0;
+}
+
+input[type="file"] :hover{
+    background-color: #3DA7C9;
+}
+
+.prenda-container img{
+    width: 85px;
+    height: 100px;
+}
+
+
+
+input[type="text"] {
+    border-radius: 13px;
+    border: 2px solid #a5a5a5;
+    background: #D2D2D2;
+    width: 160px;
+    height: 18px;
+}
+
+input[type="text"]::placeholder{
+    color: black;
+    position: relative;
+    left: 15px;
+    font-weight: 700;
+}
+
+select{
+    border: none;
+    width: 100px;
+    height: 25px;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+    font-size: 14px;
+    font-weight: 700;
+    color: #575656;
+}
+
+#tipo{
+    margin-right: 12px;
+    text-align: center;
+}
+
+#Etiqueta{
+    margin-left: 12px;
+    text-align: center;
+}
+
+option{
+    font-size: 14px;
+    font-weight: 700;
+    color: #575656;
+    text-align: center;
+
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    border-radius: 6px;
+    background: #3DA7C9;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 124px;
+    height: 28px;
+}
 
 
 /* Animacion */

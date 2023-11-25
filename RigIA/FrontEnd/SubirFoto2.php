@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <nav class="barra-options">
             <i id="barra-close" class="fa-solid fa-xmark"></i>
             <ul class="conf">
-                <li> <i class="fa-solid fa-user"></i> <a href="Home.html">Perfil</a></li>
+                <li> <i class="fa-solid fa-user"></i> <a href="Home.php">Perfil</a></li>
                 <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
                 <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
                 <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.php">Armario</a> </li>
@@ -121,20 +121,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action=""  method="POST" enctype="multipart/form-data">
 
         <div class="prenda-container">
 
-        <input name="nombreArchivo" id="nombreArchivo" type="file"/><br>
+            <label for="nombreArchivo">Subir Prenda</label><br>
+            <label for="nombreArchivo"><img src="../Images/prendita.svg" alt=""></label>
+            <input name="nombreArchivo" id="nombreArchivo" type="file"/>
         
-        <label for="nombre_prenda">Nombre de la prenda:</label>
-        <input type="text" name="nombre_prenda" id="nombre_prenda" maxlength="100" required><br><br>
+            <input type="text" name="nombre_prenda" id="nombre_prenda" placeholder="Nombre de la prenda" maxlength="100" required><br><br>
 
         </div>
 
         <div class="filters">
 
-        <label for="lang">Prenda</label>
         <select name="tipo" id="tipo" required>
             <option value="Remera">Remera</option>
             <option value="Campera">Campera</option>
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Pollera">Pollera</option>
         </select>
 
-        <label for="lang">Etiqueta</label>
+
         <select name="Etiqueta" id="Etiqueta" required>
             <option value="Formal">Formal</option>
             <option value="Informal">Informal</option>

@@ -3,7 +3,7 @@ require("DbConfiguracion.php");
 
 session_start();
 
-var_dump ($_SESSION['UsuarioActivo']);
+//var_dump ($_SESSION['UsuarioActivo']);
 
 // Obtener el nombre de usuario desde la sesión
 $nombreUsuario = $_SESSION['UsuarioActivo'];
@@ -26,8 +26,8 @@ if ($stmt->execute()) {
     // Error en la ejecución de la consulta, maneja esto apropiadamente
 }
 
-var_dump ("Numero de ID:");
-var_dump ($idUsuarioActivo);
+//var_dump ("Numero de ID:");
+//var_dump ($idUsuarioActivo);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['guardar'])) {
@@ -57,9 +57,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if ($stmt->execute()) {
                             echo "Los datos se han insertado correctamente en la base de datos.";
                             echo '<script>
-                                    // Actualiza la imagen después de la subida
-                                    document.getElementById("imagenSubida").src = "../ImagenesPrendas/' . $archivo . '";
-                                </script>';
+                            // Actualiza la imagen después de la subida
+                            document.getElementById("imagenSubida").src = "../ImagenesPrendas/' . $archivo . '";
+                            document.getElementById("nombre_prenda").style.width = "50px";
+                            document.getElementById("nombre_prenda").style.height = "50px";
+                         </script>';
+                                
+                            header("location: ../FrontEnd/TuArmario.php");
                         } else {
                             echo "Error al insertar los datos en la base de datos: " . $mysqli->error;
                         }
@@ -87,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://kit.fontawesome.com/a6f001e2da.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <script src="Home.js"></script>
         <header>
         <div class="logo">
@@ -105,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li> <i class="fa-solid fa-user"></i> <a href="Home.html">Perfil</a></li>
                 <li> <i class="fa-solid fa-gear"></i> <a href="Configuracion.html">Configuracion</a></li>
                 <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
-                <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.html">Armario</a> </li>
+                <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.php">Armario</a> </li>
                 <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
                 <li> <i class="fa-regular fa-square-plus"></i><a href="CrearOutfit.html"> Crear Outfit</a></li>
 

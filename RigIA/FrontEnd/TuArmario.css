@@ -36,6 +36,8 @@ header{
     background-color: white;
     text-decoration: none;
     padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.288);
+
 }
 
 header span{
@@ -106,6 +108,12 @@ main p{
 
 }
 
+.user-img{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    left: 5px;
+}
 /* Animacion */
 
 nav {
@@ -180,7 +188,9 @@ li {
 }
 
 .punto-open {
-    margin-bottom: 15px; /* nose porque pero no funciona */
+    position: absolute;
+    right: 12px;
+    top: 88px;
   }
   
 
@@ -200,8 +210,12 @@ li {
 
 }
 
+.drawer a{
+    color: red;
+}
+
 .drawer.open {
-    height: 35vh;
+    height: 40vh;
 }
 
 .drawer-background {

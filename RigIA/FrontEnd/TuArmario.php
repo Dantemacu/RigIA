@@ -56,6 +56,8 @@ if ($stmt->execute()) {
                 <li> <i class="fa-solid fa-shirt"></i> <a href="SubirPrenda.php">Subir prenda</a> </li>
                 <li> <i class="fa-solid fa-folder-closed"></i> <a href="TuArmario.php">Armario</a> </li>
                 <li> <i class="fa-solid fa-magnifying-glass"></i><a href="Busqueda.html"> Búsqueda</a></li>
+                <li> <i class="fa-regular fa-square-plus"></i><a href="CrearOutfit.html"> Crear Outfit</a></li>
+
             </ul>
         </nav>
     </header>
@@ -83,7 +85,7 @@ if ($stmt->execute()) {
   
           // Muestra la imagen y el botón de eliminación
           echo '<div class="item">';
-          echo '<img src="' . $imagenURL . '" alt="Prenda del usuario">';
+          echo '<img src="' . $imagenURL . '" alt="Prenda del usuario" class="user-img">';
           echo '<a class="open-drawer">';
           echo '<a  class="punto-open">... </a>';
           //href="TresPuntosHome.php"

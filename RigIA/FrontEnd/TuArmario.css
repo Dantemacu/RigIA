@@ -214,6 +214,11 @@ li {
     color: red;
 }
 
+.drawer a.editar-nombre-link {
+    color: black; /* tu nuevo color aquí */;
+}
+
+
 .drawer.open {
     height: 40vh;
 }

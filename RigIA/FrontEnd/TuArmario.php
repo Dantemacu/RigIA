@@ -110,10 +110,14 @@ if ($stmt->execute()) {
           <li>Añadir a favoritos</li> 
           <li>Añadir etiqueta</li>
           <li>Editar etiqueta</li>
-          <li>Editar Nombre</li>
         </ul>
         <?php
-          echo '<a href="eliminar_imagen.php?id=' . $imagenID . '">Eliminar</a>';
+        echo '<a class="editar-nombre-link" href="editarNombre.php?id=' . $imagenID . '&nombreArchivo=' . urlencode($nombreArchivo) . '">Editar Nombre</a>';
+        ?>
+        <br>
+        <?php
+          echo '<a href="eliminar_Imagen.php?id=' . $imagenID . '">Eliminar</a>';
+          
       ?>
       </div>
     

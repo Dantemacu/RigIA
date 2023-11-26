@@ -1,7 +1,9 @@
 <?php
+session_start();
 require ("DbConfiguracion.php");
 
-session_start();
+
+
 
 // RECUPERAR EL ID DEL USUARIO ACTIVO
 $nombreUsuario = $_SESSION['UsuarioActivo'];
@@ -108,12 +110,13 @@ if ($result_imagenes->num_rows > 0) {
     </div>
 
     <div class="drawer-background" id="drawer-background"></div>
-</body>
-  </html>
-
-  <?php
-// Lee la información del outfit desde el archivo
-$outfitData = file_get_contents("outfit_data.txt");
-$outfit = json_decode($outfitData, true);
+    <div>
+<?php
+require ("crear_outfit.php");
 ?>
+
+
+    </div>
+</body>
+</html>
 

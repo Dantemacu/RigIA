@@ -1,23 +1,66 @@
 <?php
 require("DbConfiguracion.php");
 
-$tipoPrenda{remera,pantalon,calzado};
+//session_start();
 
-// Función para obtener una imagen aleatoria de un tipo específico
-function obtenerImagenAleatoria($tipoPrenda) {
-    global $mysqli;
-    $sql = "SELECT id_imagenes, nombre_archivo FROM imagenes WHERE tipo_prenda = ? AND id_usuario = ? ORDER BY RAND() LIMIT 1";
-    $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("si", $tipoPrenda, $_SESSION['IDUsuarioActivo']);
-    $stmt->execute();
-    $result = $stmt->get_result();
+$tipoPrenda=array("Remera","Pantalon","Calzado");
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        return $row;
-    } else {
-        return null;
+// RECUPERAR EL ID Y EL NOMBRE DEL USUARIO LOGEADO
+$nombreUsuario = $_SESSION['UsuarioActivo'];
+$sql = "SELECT ID FROM InicioSesion WHERE Mail = ?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $nombreUsuario);
+
+if ($stmt->execute()) {
+  $result = $stmt->get_result();
+  if ($result->num_rows > 0) {
+      $fila = $result->fetch_assoc();
+      $idUsuarioActivo = $fila['ID'];
+    } 
+    else { 
     }
+  } 
+  else {
 }
+
+// QUERY PARA MOSTRAR LAS IMAGENES SUBIDAS POR EL USUARIO ACTIVO
+
+foreach($tipoPrenda as $valor){
+
+
+
+    $sql_imagenes = "SELECT  id_imagenes, nombre_archivo, tipo_prenda FROM imagenes WHERE id_usuario = ? AND tipo_prenda = ? LIMIT 1";
+    $stmt_imagenes = $mysqli->prepare($sql_imagenes);
+    $stmt_imagenes->bind_param("is", $idUsuarioActivo, $valor);
+    $stmt_imagenes->execute();
+    $result_imagenes = $stmt_imagenes->get_result();
+
+    
+    
+    if ($result_imagenes->num_rows > 0) {
+      while ($row_imagen = $result_imagenes->fetch_assoc()) {
+          $imagenID = $row_imagen['id_imagenes'];
+          $nombreArchivo = $row_imagen['nombre_archivo'];
+          $imagenURL = "../ImagenesPrendas/" . $nombreArchivo;
+    
+          // Muestra la imagen y el botón de eliminación
+          echo '<div class="item">';
+          echo '<img src="' . $imagenURL . '" alt="Prenda del usuario" class="user-img">';
+          echo '<a class="open-drawer">';
+          echo '<a  class="punto-open">... </a>';
+          //href="TresPuntosHome.php"
+          echo '</a>';
+          echo '</div>';
+    
+      }
+    } else {
+      // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
+      echo 'No has subido ninguna prenda aún.';
+      echo '<a href="SubirFoto2.php"><img src="../Images/CuadradoImagen.png" alt="Subir Imagen"></a>';
+    }
+
+}
+
+
 
 ?>

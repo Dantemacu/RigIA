@@ -20,8 +20,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 
     $stmt_eliminar->close();
+} else {
+    // Si no se proporciona un ID válido, muestra un mensaje de error
+    echo "ID de imagen no válido.";
 }
 
-// Si no se proporciona un ID válido, muestra un mensaje de error
-echo "ID de imagen no válido.";
+// Cierra la conexión a la base de datos
+$mysqli->close();
 ?>

@@ -21,11 +21,8 @@ if ($stmt->execute()) {
   } 
   else {
 }
-
-//var_dump ($_SESSION['UsuarioActivo']);
-//var_dump ($idUsuarioActivo);
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,4 +110,10 @@ if ($result_imagenes->num_rows > 0) {
     <div class="drawer-background" id="drawer-background"></div>
 </body>
   </html>
+
+  <?php
+// Lee la información del outfit desde el archivo
+$outfitData = file_get_contents("outfit_data.txt");
+$outfit = json_decode($outfitData, true);
+?>
 

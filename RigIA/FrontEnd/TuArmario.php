@@ -116,7 +116,7 @@ if ($stmt->execute()) {
         ?>
         <br>
         <?php
-          echo '<a href="eliminar_Imagen.php?id=' . $imagenID . '">Eliminar</a>';
+          echo '<a href="eliminar_Imagen.php?id=' . $imagenID . '">Eliminar ultima imagen subida</a>';
           
       ?>
       </div>

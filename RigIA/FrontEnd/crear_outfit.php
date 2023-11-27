@@ -47,7 +47,6 @@ foreach($tipoPrenda as $valor){
           echo '<div class="item">';
           echo '<img src="' . $imagenURL . '" alt="Prenda del usuario" class="user-img">';
           echo '<a class="open-drawer">';
-          echo '<a  class="punto-open">... </a>';
           //href="TresPuntosHome.php"
           echo '</a>';
           echo '</div>';

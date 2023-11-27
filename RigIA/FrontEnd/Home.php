@@ -94,7 +94,7 @@ if ($result_imagenes->num_rows > 0) {
 </div>
 
 <body>  
-  <div class="drawer">
+<  <div class="drawer">
       <div class="barrita-drawer">
         <p id="close-drawer"></p>
       </div>

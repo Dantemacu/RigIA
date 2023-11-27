@@ -108,6 +108,13 @@ div.container {
 .item {
     position: relative;
     margin-bottom: 20px;
+    align-items: center;
+
+    text-align: center;
+}
+
+img.user-img{
+    align-items: center;
 }
 
 

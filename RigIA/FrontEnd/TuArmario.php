@@ -96,7 +96,6 @@ if ($stmt->execute()) {
     } else {
       // Muestra un mensaje si el usuario no tiene imágenes de prendas subidas
       echo 'No has subido ninguna prenda aún.';
-      echo '<a href="SubirFoto2.php"><img src="../Images/CuadradoImagen.png" alt="Subir Imagen"></a>';
     }
     ?>
 
